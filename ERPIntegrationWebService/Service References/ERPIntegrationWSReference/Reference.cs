@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ERPIntegrationWS.ERPIntegrationWSReference {
+namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     using System.Data;
     
     
@@ -34,12 +34,12 @@ namespace ERPIntegrationWS.ERPIntegrationWSReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ERPIntegrationWSSoapChannel : ERPIntegrationWS.ERPIntegrationWSReference.ERPIntegrationWSSoap, System.ServiceModel.IClientChannel {
+    public interface ERPIntegrationWSSoapChannel : ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ERPIntegrationWSSoapClient : System.ServiceModel.ClientBase<ERPIntegrationWS.ERPIntegrationWSReference.ERPIntegrationWSSoap>, ERPIntegrationWS.ERPIntegrationWSReference.ERPIntegrationWSSoap {
+    public partial class ERPIntegrationWSSoapClient : System.ServiceModel.ClientBase<ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap>, ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap {
         
         public ERPIntegrationWSSoapClient() {
         }

@@ -165,10 +165,10 @@
   </wsdl:binding>
   <wsdl:service name="ERPIntegrationWS">
     <wsdl:port name="ERPIntegrationWSSoap" binding="tns:ERPIntegrationWSSoap">
-      <soap:address location="http://localhost:60999/ERPIntegrationWS.asmx" />
+      <soap:address location="http://localhost:61058/ERPIntegrationWS.asmx" />
     </wsdl:port>
     <wsdl:port name="ERPIntegrationWSSoap12" binding="tns:ERPIntegrationWSSoap12">
-      <soap12:address location="http://localhost:60999/ERPIntegrationWS.asmx" />
+      <soap12:address location="http://localhost:61058/ERPIntegrationWS.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

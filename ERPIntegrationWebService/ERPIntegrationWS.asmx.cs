@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Services;
 using System.Data;
 
-namespace ERPIntegrationWS
+namespace ERPIntegrationWebService
 {
     /// <summary>
     /// Summary description for ERPIntegrationWS

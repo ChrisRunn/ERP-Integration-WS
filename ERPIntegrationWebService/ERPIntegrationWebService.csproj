@@ -7,12 +7,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{1D065294-72B7-48AC-95C2-D43DEA54D05A}</ProjectGuid>
+    <ProjectGuid>{E339942E-2104-4DED-A054-56256DA2716D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ERPIntegrationWS</RootNamespace>
-    <AssemblyName>ERPIntegrationWS</AssemblyName>
+    <RootNamespace>ERPIntegrationWebService</RootNamespace>
+    <AssemblyName>ERPIntegrationWebService</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -64,6 +64,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL.cs" />
@@ -82,7 +83,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -111,7 +111,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60999/</IISUrl>
+          <IISUrl>http://localhost:61058/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
