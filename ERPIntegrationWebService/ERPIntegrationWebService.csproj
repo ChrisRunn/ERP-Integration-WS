@@ -64,7 +64,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL.cs" />
@@ -83,6 +82,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
