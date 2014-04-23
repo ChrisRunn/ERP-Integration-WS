@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WebServiceERP")]
+[assembly: AssemblyTitle("ERPIntegrationWS")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WebServiceERP")]
+[assembly: AssemblyProduct("ERPIntegrationWS")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e2aa438a-e86f-4a96-8068-7d4518b9cb75")]
+[assembly: Guid("3851c8be-27fa-4ce6-8d93-55f3bf223137")]
 
 // Version information for an assembly consists of the following four values:
 //

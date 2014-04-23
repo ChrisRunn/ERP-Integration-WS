@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 
-namespace WebServiceERP
+namespace ERPIntegrationWS
 {
     public class DAL
     {
@@ -17,11 +17,11 @@ namespace WebServiceERP
             SqlDataAdapter adapter = new SqlDataAdapter(
      "select No_ from [CRONUS Sverige AB$Employee]", connectionString);
 
-            DataSet studentDS = new DataSet();
+            DataSet employeeDS = new DataSet();
             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(studentDS, "Students");
+            adapter.Fill(employeeDS, "Emplyees");
 
-            return studentDS;
+            return employeeDS;
 
         }
     }

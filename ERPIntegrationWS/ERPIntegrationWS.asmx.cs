@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Data;
 
-namespace WebServiceERP
+namespace ERPIntegrationWS
 {
     /// <summary>
-    /// Summary description for Service1
+    /// Summary description for ERPIntegrationWS
     /// </summary>
-    [WebService(Namespace = "http://tempuri.org/")]
+    [WebService(Namespace = "http://brokerapplication.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
     // [System.Web.Script.Services.ScriptService]
-    public class Service1 : System.Web.Services.WebService
+    public class ERPIntegrationWS : System.Web.Services.WebService
     {
 
         DAL dal = new DAL();
@@ -40,7 +40,5 @@ namespace WebServiceERP
         {
             return dal.GetAllEmployees();
         }
-
-
     }
 }

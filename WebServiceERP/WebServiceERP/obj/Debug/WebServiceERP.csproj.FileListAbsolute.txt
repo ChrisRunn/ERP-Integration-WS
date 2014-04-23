@@ -1,5 +1,0 @@
-c:\users\christia\documents\visual studio 2012\Projects\WebServiceERP\WebServiceERP\bin\WebServiceERP.dll
-c:\users\christia\documents\visual studio 2012\Projects\WebServiceERP\WebServiceERP\bin\WebServiceERP.pdb
-c:\users\christia\documents\visual studio 2012\Projects\WebServiceERP\WebServiceERP\obj\Debug\WebServiceERP.csprojResolveAssemblyReference.cache
-c:\users\christia\documents\visual studio 2012\Projects\WebServiceERP\WebServiceERP\obj\Debug\WebServiceERP.dll
-c:\users\christia\documents\visual studio 2012\Projects\WebServiceERP\WebServiceERP\obj\Debug\WebServiceERP.pdb

@@ -1,0 +1,5 @@
+c:\users\marcus jacobsson\documents\visual studio 2012\Projects\ERPIntegrationWS\ERPIntegrationWS\obj\Debug\ERPIntegrationWS.csprojResolveAssemblyReference.cache
+c:\users\marcus jacobsson\documents\visual studio 2012\Projects\ERPIntegrationWS\ERPIntegrationWS\bin\ERPIntegrationWS.dll
+c:\users\marcus jacobsson\documents\visual studio 2012\Projects\ERPIntegrationWS\ERPIntegrationWS\bin\ERPIntegrationWS.pdb
+c:\users\marcus jacobsson\documents\visual studio 2012\Projects\ERPIntegrationWS\ERPIntegrationWS\obj\Debug\ERPIntegrationWS.dll
+c:\users\marcus jacobsson\documents\visual studio 2012\Projects\ERPIntegrationWS\ERPIntegrationWS\obj\Debug\ERPIntegrationWS.pdb

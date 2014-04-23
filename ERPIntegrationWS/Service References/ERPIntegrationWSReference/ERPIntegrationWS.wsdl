@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://brokerapplication.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://brokerapplication.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://brokerapplication.org/">
       <s:element name="InsertEmployee">
         <s:complexType />
       </s:element>
@@ -63,7 +63,7 @@
   <wsdl:message name="GetAllEmployeesSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllEmployeesResponse" />
   </wsdl:message>
-  <wsdl:portType name="Service1Soap">
+  <wsdl:portType name="ERPIntegrationWSSoap">
     <wsdl:operation name="InsertEmployee">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserts new employee</wsdl:documentation>
       <wsdl:input message="tns:InsertEmployeeSoapIn" />
@@ -85,10 +85,10 @@
       <wsdl:output message="tns:GetAllEmployeesSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="Service1Soap" type="tns:Service1Soap">
+  <wsdl:binding name="ERPIntegrationWSSoap" type="tns:ERPIntegrationWSSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InsertEmployee">
-      <soap:operation soapAction="http://tempuri.org/InsertEmployee" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/InsertEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -97,7 +97,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEmployee">
-      <soap:operation soapAction="http://tempuri.org/UpdateEmployee" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/UpdateEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -106,7 +106,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
-      <soap:operation soapAction="http://tempuri.org/DeleteEmployee" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/DeleteEmployee" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -115,7 +115,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllEmployees">
-      <soap:operation soapAction="http://tempuri.org/GetAllEmployees" style="document" />
+      <soap:operation soapAction="http://brokerapplication.org/GetAllEmployees" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -124,10 +124,10 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="Service1Soap12" type="tns:Service1Soap">
+  <wsdl:binding name="ERPIntegrationWSSoap12" type="tns:ERPIntegrationWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="InsertEmployee">
-      <soap12:operation soapAction="http://tempuri.org/InsertEmployee" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/InsertEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -136,7 +136,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="UpdateEmployee">
-      <soap12:operation soapAction="http://tempuri.org/UpdateEmployee" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/UpdateEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -145,7 +145,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
-      <soap12:operation soapAction="http://tempuri.org/DeleteEmployee" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/DeleteEmployee" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -154,7 +154,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllEmployees">
-      <soap12:operation soapAction="http://tempuri.org/GetAllEmployees" style="document" />
+      <soap12:operation soapAction="http://brokerapplication.org/GetAllEmployees" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -163,12 +163,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="Service1">
-    <wsdl:port name="Service1Soap" binding="tns:Service1Soap">
-      <soap:address location="http://localhost:50522/Service1.asmx" />
+  <wsdl:service name="ERPIntegrationWS">
+    <wsdl:port name="ERPIntegrationWSSoap" binding="tns:ERPIntegrationWSSoap">
+      <soap:address location="http://localhost:60999/ERPIntegrationWS.asmx" />
     </wsdl:port>
-    <wsdl:port name="Service1Soap12" binding="tns:Service1Soap12">
-      <soap12:address location="http://localhost:50522/Service1.asmx" />
+    <wsdl:port name="ERPIntegrationWSSoap12" binding="tns:ERPIntegrationWSSoap12">
+      <soap12:address location="http://localhost:60999/ERPIntegrationWS.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
