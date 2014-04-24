@@ -107,7 +107,7 @@ namespace ERPIntegrationWebService
         public DataSet GetMostSickEmployee()
         {
             SqlDataAdapter adapter = new SqlDataAdapter(
-            "select max(e.[First Name]) as Name from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
+            "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
             DataSet employeeDS = new DataSet();
             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             adapter.Fill(employeeDS, "Employees");
