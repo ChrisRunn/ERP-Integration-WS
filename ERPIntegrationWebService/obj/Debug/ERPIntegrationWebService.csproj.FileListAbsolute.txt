@@ -8,3 +8,9 @@ C:\Users\Christia\Desktop\Git\ERP Integration WS\ERPIntegrationWebService\bin\ER
 C:\Users\Christia\Desktop\Git\ERP Integration WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.csprojResolveAssemblyReference.cache
 C:\Users\Christia\Desktop\Git\ERP Integration WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.dll
 C:\Users\Christia\Desktop\Git\ERP Integration WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.pdb
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.csprojResolveAssemblyReference.cache
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.dll
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.pdb
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.dll.config
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.dll
+C:\Users\William\Documents\ERP-Integration-WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.pdb
