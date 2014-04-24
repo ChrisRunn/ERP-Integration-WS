@@ -50,31 +50,67 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllKeys", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllKeys();
+        ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeys();
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.17929")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class SysObject : object, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllIndexes", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllIndexes();
+        private string idField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllConstraints", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllConstraints();
+        private string xtypeField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllTables", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllTables();
+        private string nameField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllTables2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetAllTables2();
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string Id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("Id");
+            }
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetColumnsEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetColumnsEmployee();
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Xtype {
+            get {
+                return this.xtypeField;
+            }
+            set {
+                this.xtypeField = value;
+                this.RaisePropertyChanged("Xtype");
+            }
+        }
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetColumnsEmployee2", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetColumnsEmployee2();
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string Name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("Name");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -136,32 +172,8 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetMostSickEmployee();
         }
         
-        public System.Data.DataSet GetAllKeys() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeys() {
             return base.Channel.GetAllKeys();
-        }
-        
-        public System.Data.DataSet GetAllIndexes() {
-            return base.Channel.GetAllIndexes();
-        }
-        
-        public System.Data.DataSet GetAllConstraints() {
-            return base.Channel.GetAllConstraints();
-        }
-        
-        public System.Data.DataSet GetAllTables() {
-            return base.Channel.GetAllTables();
-        }
-        
-        public System.Data.DataSet GetAllTables2() {
-            return base.Channel.GetAllTables2();
-        }
-        
-        public System.Data.DataSet GetColumnsEmployee() {
-            return base.Channel.GetColumnsEmployee();
-        }
-        
-        public System.Data.DataSet GetColumnsEmployee2() {
-            return base.Channel.GetColumnsEmployee2();
         }
     }
 }

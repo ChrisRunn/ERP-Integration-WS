@@ -56,14 +56,19 @@
   <ItemGroup>
     <Content Include="ERPIntegrationWS.asmx" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.disco" />
-    <Content Include="Service References\ERPIntegrationWSReference\configuration91.svcinfo" />
-    <Content Include="Service References\ERPIntegrationWSReference\configuration.svcinfo" />
-    <Content Include="Service References\ERPIntegrationWSReference\Reference.svcmap">
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.disco" />
+    <None Include="Service References\ERPIntegrationWSReference\configuration91.svcinfo" />
+    <None Include="Service References\ERPIntegrationWSReference\configuration.svcinfo" />
+    <None Include="Service References\ERPIntegrationWSReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
     </Content>
-    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL.cs" />
@@ -77,12 +82,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SysObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
+    <None Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

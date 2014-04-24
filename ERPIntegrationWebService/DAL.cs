@@ -127,80 +127,98 @@ namespace ERPIntegrationWebService
         #endregion Uppgift A
 
         #region Uppgift B
-        public DataSet GetAllKeys()
+        public List<SysObject> GetAllKeys()
         {
+
             SqlDataAdapter adapter = new SqlDataAdapter(
             "SELECT TOP 100 [id], [xtype], [name] FROM sysobjects WHERE xtype = 'F' OR xtype = 'PK'", connectionString);
-            DataSet employeeDS = new DataSet();
+            DataSet sysObjectDS = new DataSet();
             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
+            adapter.Fill(sysObjectDS, "sysobjects");
 
-            return employeeDS;
+            DataTable dt = new DataTable();
+            dt = sysObjectDS.Tables["SysObjects"];
+            List<SysObject> sysObjectList = new List<SysObject>();
+
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                SysObject pb = new SysObject();
+                pb.Id = dataRow["id"].ToString();
+                pb.Xtype = dataRow["xtype"].ToString();
+                pb.Name = dataRow["name"].ToString();
+                sysObjectList.Add(pb);
+            }
+
+
+            return sysObjectList;
+
         }
 
-        public DataSet GetAllIndexes()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
-
-            return employeeDS;
+            
         }
-        public DataSet GetAllConstraints()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-           "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
 
-            return employeeDS;
-        }
-        public DataSet GetAllTables()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-           "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
+        //public DataSet GetAllIndexes()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //    "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
 
-            return employeeDS;
-        }
-        public DataSet GetAllTables2()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [name] FROM sys.tables", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
+        //    return employeeDS;
+        //}
+        //public DataSet GetAllConstraints()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //   "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
 
-            return employeeDS;
-        }
-        public DataSet GetColumnsEmployee()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
+        //    return employeeDS;
+        //}
+        //public DataSet GetAllTables()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //   "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
 
-            return employeeDS;
-        }
-        public DataSet GetColumnsEmployee2()
-        {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Employees");
+        //    return employeeDS;
+        //}
+        //public DataSet GetAllTables2()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //    "SELECT TOP 100 [name] FROM sys.tables", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
 
-            return employeeDS;
-        }
+        //    return employeeDS;
+        //}
+        //public DataSet GetColumnsEmployee()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //    "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
+
+        //    return employeeDS;
+        //}
+        //public DataSet GetColumnsEmployee2()
+        //{
+        //    SqlDataAdapter adapter = new SqlDataAdapter(
+        //    "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
+        //    DataSet employeeDS = new DataSet();
+        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+        //    adapter.Fill(employeeDS, "Employees");
+
+        //    return employeeDS;
+        //}
 
         #endregion Uppgift B
 
        
     }
-}

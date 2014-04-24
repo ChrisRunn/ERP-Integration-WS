@@ -76,46 +76,46 @@ namespace ERPIntegrationWebService
         #region Uppgift B
 
         [WebMethod(Description = "Shows all Keys", EnableSession = false)]
-        public DataSet GetAllKeys()
+        public List<SysObject> GetAllKeys()
         {
             return dal.GetAllKeys();
         }
 
-        [WebMethod(Description = "Shows all indexes", EnableSession = false)]
-        public DataSet GetAllIndexes()
-        {
-            return dal.GetAllIndexes();
-        }
+        //[WebMethod(Description = "Shows all indexes", EnableSession = false)]
+        //public DataSet GetAllIndexes()
+        //{
+        //    return dal.GetAllIndexes();
+        //}
 
-        [WebMethod(Description = "Shows all constraints", EnableSession = false)]
-        public DataSet GetAllConstraints()
-        {
-            return dal.GetAllConstraints();
-        }
+        //[WebMethod(Description = "Shows all constraints", EnableSession = false)]
+        //public DataSet GetAllConstraints()
+        //{
+        //    return dal.GetAllConstraints();
+        //}
 
-        [WebMethod(Description = "Shows all tables solution 1", EnableSession = false)]
-        public DataSet GetAllTables()
-        {
-            return dal.GetAllTables();
-        }
+        //[WebMethod(Description = "Shows all tables solution 1", EnableSession = false)]
+        //public DataSet GetAllTables()
+        //{
+        //    return dal.GetAllTables();
+        //}
 
-        [WebMethod(Description = "Shows all tables solution 2", EnableSession = false)]
-        public DataSet GetAllTables2()
-        {
-            return dal.GetAllTables2();
-        }
+        //[WebMethod(Description = "Shows all tables solution 2", EnableSession = false)]
+        //public DataSet GetAllTables2()
+        //{
+        //    return dal.GetAllTables2();
+        //}
 
-        [WebMethod(Description = "Shows all columns in Employee table Solution 1", EnableSession = false)]
-        public DataSet GetColumnsEmployee()
-        {
-            return dal.GetColumnsEmployee();
-        }
+        //[WebMethod(Description = "Shows all columns in Employee table Solution 1", EnableSession = false)]
+        //public DataSet GetColumnsEmployee()
+        //{
+        //    return dal.GetColumnsEmployee();
+        //}
 
-        [WebMethod(Description = "Shows all columns in Employee table Solution 2", EnableSession = false)]
-        public DataSet GetColumnsEmployee2()
-        {
-            return dal.GetColumnsEmployee2();
-        }
+        //[WebMethod(Description = "Shows all columns in Employee table Solution 2", EnableSession = false)]
+        //public DataSet GetColumnsEmployee2()
+        //{
+        //    return dal.GetColumnsEmployee2();
+        //}
         #endregion Uppgift A
 
     }

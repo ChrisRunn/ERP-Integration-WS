@@ -119,119 +119,22 @@
       <s:element name="GetAllKeysResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllKeysResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllKeysResult" type="tns:ArrayOfSysObject" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="GetAllIndexes">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetAllIndexesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllIndexesResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetAllConstraints">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetAllConstraintsResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllConstraintsResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetAllTables">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetAllTablesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllTablesResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetAllTables2">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetAllTables2Response">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetAllTables2Result">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetColumnsEmployee">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetColumnsEmployeeResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetColumnsEmployeeResult">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="GetColumnsEmployee2">
-        <s:complexType />
-      </s:element>
-      <s:element name="GetColumnsEmployee2Response">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetColumnsEmployee2Result">
-              <s:complexType>
-                <s:sequence>
-                  <s:element ref="s:schema" />
-                  <s:any />
-                </s:sequence>
-              </s:complexType>
-            </s:element>
-          </s:sequence>
-        </s:complexType>
-      </s:element>
+      <s:complexType name="ArrayOfSysObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SysObject" nillable="true" type="tns:SysObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SysObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Xtype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="InsertEmployeeSoapIn">
@@ -288,42 +191,6 @@
   <wsdl:message name="GetAllKeysSoapOut">
     <wsdl:part name="parameters" element="tns:GetAllKeysResponse" />
   </wsdl:message>
-  <wsdl:message name="GetAllIndexesSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAllIndexes" />
-  </wsdl:message>
-  <wsdl:message name="GetAllIndexesSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAllIndexesResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetAllConstraintsSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAllConstraints" />
-  </wsdl:message>
-  <wsdl:message name="GetAllConstraintsSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAllConstraintsResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetAllTablesSoapIn">
-    <wsdl:part name="parameters" element="tns:GetAllTables" />
-  </wsdl:message>
-  <wsdl:message name="GetAllTablesSoapOut">
-    <wsdl:part name="parameters" element="tns:GetAllTablesResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetAllTables2SoapIn">
-    <wsdl:part name="parameters" element="tns:GetAllTables2" />
-  </wsdl:message>
-  <wsdl:message name="GetAllTables2SoapOut">
-    <wsdl:part name="parameters" element="tns:GetAllTables2Response" />
-  </wsdl:message>
-  <wsdl:message name="GetColumnsEmployeeSoapIn">
-    <wsdl:part name="parameters" element="tns:GetColumnsEmployee" />
-  </wsdl:message>
-  <wsdl:message name="GetColumnsEmployeeSoapOut">
-    <wsdl:part name="parameters" element="tns:GetColumnsEmployeeResponse" />
-  </wsdl:message>
-  <wsdl:message name="GetColumnsEmployee2SoapIn">
-    <wsdl:part name="parameters" element="tns:GetColumnsEmployee2" />
-  </wsdl:message>
-  <wsdl:message name="GetColumnsEmployee2SoapOut">
-    <wsdl:part name="parameters" element="tns:GetColumnsEmployee2Response" />
-  </wsdl:message>
   <wsdl:portType name="ERPIntegrationWSSoap">
     <wsdl:operation name="InsertEmployee">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Inserts new employee</wsdl:documentation>
@@ -369,36 +236,6 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all Keys</wsdl:documentation>
       <wsdl:input message="tns:GetAllKeysSoapIn" />
       <wsdl:output message="tns:GetAllKeysSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllIndexes">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all indexes</wsdl:documentation>
-      <wsdl:input message="tns:GetAllIndexesSoapIn" />
-      <wsdl:output message="tns:GetAllIndexesSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllConstraints">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all constraints</wsdl:documentation>
-      <wsdl:input message="tns:GetAllConstraintsSoapIn" />
-      <wsdl:output message="tns:GetAllConstraintsSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all tables solution 1</wsdl:documentation>
-      <wsdl:input message="tns:GetAllTablesSoapIn" />
-      <wsdl:output message="tns:GetAllTablesSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables2">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all tables solution 2</wsdl:documentation>
-      <wsdl:input message="tns:GetAllTables2SoapIn" />
-      <wsdl:output message="tns:GetAllTables2SoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all columns in Employee table Solution 1</wsdl:documentation>
-      <wsdl:input message="tns:GetColumnsEmployeeSoapIn" />
-      <wsdl:output message="tns:GetColumnsEmployeeSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee2">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all columns in Employee table Solution 2</wsdl:documentation>
-      <wsdl:input message="tns:GetColumnsEmployee2SoapIn" />
-      <wsdl:output message="tns:GetColumnsEmployee2SoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ERPIntegrationWSSoap" type="tns:ERPIntegrationWSSoap">
@@ -484,60 +321,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAllIndexes">
-      <soap:operation soapAction="http://brokerapplication.org/GetAllIndexes" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllConstraints">
-      <soap:operation soapAction="http://brokerapplication.org/GetAllConstraints" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables">
-      <soap:operation soapAction="http://brokerapplication.org/GetAllTables" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables2">
-      <soap:operation soapAction="http://brokerapplication.org/GetAllTables2" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee">
-      <soap:operation soapAction="http://brokerapplication.org/GetColumnsEmployee" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee2">
-      <soap:operation soapAction="http://brokerapplication.org/GetColumnsEmployee2" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ERPIntegrationWSSoap12" type="tns:ERPIntegrationWSSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -615,60 +398,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllKeys">
       <soap12:operation soapAction="http://brokerapplication.org/GetAllKeys" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllIndexes">
-      <soap12:operation soapAction="http://brokerapplication.org/GetAllIndexes" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllConstraints">
-      <soap12:operation soapAction="http://brokerapplication.org/GetAllConstraints" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables">
-      <soap12:operation soapAction="http://brokerapplication.org/GetAllTables" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllTables2">
-      <soap12:operation soapAction="http://brokerapplication.org/GetAllTables2" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee">
-      <soap12:operation soapAction="http://brokerapplication.org/GetColumnsEmployee" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetColumnsEmployee2">
-      <soap12:operation soapAction="http://brokerapplication.org/GetColumnsEmployee2" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
