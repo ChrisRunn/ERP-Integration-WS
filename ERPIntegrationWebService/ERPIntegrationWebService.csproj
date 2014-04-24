@@ -76,13 +76,18 @@
       <DependentUpon>ERPIntegrationWS.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Information_Schema_Column.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ERPIntegrationWSReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="SysColumn.cs" />
+    <Compile Include="SysConstraint.cs" />
+    <Compile Include="SysIndex.cs" />
     <Compile Include="SysObject.cs" />
+    <Compile Include="SysTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

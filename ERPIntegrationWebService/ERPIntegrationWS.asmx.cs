@@ -7,14 +7,14 @@ using System.Data;
 
 namespace ERPIntegrationWebService
 {
-    /// <summary>
-    /// Summary description for ERPIntegrationWS
-    /// </summary>
+     //<summary>
+     //Summary description for ERPIntegrationWS
+     //</summary>
     [WebService(Namespace = "http://brokerapplication.org/")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
-    // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    // [System.Web.Script.Services.ScriptService]
+     //To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
+     //[System.Web.Script.Services.ScriptService]
     public class ERPIntegrationWS : System.Web.Services.WebService
     {
         DAL dal = new DAL();
@@ -82,37 +82,37 @@ namespace ERPIntegrationWebService
         }
 
         //[WebMethod(Description = "Shows all indexes", EnableSession = false)]
-        //public DataSet GetAllIndexes()
+        //public List<SysIndex> GetAllIndexes()
         //{
         //    return dal.GetAllIndexes();
         //}
 
         //[WebMethod(Description = "Shows all constraints", EnableSession = false)]
-        //public DataSet GetAllConstraints()
+        //public List<SysConstraint> GetAllConstraints()
         //{
         //    return dal.GetAllConstraints();
         //}
 
         //[WebMethod(Description = "Shows all tables solution 1", EnableSession = false)]
-        //public DataSet GetAllTables()
+        //public List<SysObject> GetAllTables()
         //{
         //    return dal.GetAllTables();
         //}
 
         //[WebMethod(Description = "Shows all tables solution 2", EnableSession = false)]
-        //public DataSet GetAllTables2()
+        //public List<SysTable> GetAllTables2()
         //{
         //    return dal.GetAllTables2();
         //}
 
         //[WebMethod(Description = "Shows all columns in Employee table Solution 1", EnableSession = false)]
-        //public DataSet GetColumnsEmployee()
+        //public List<SysColumn> GetColumnsEmployee()
         //{
         //    return dal.GetColumnsEmployee();
         //}
 
         //[WebMethod(Description = "Shows all columns in Employee table Solution 2", EnableSession = false)]
-        //public DataSet GetColumnsEmployee2()
+        //public List<Information_Schema_Column> GetColumnsEmployee2()
         //{
         //    return dal.GetColumnsEmployee2();
         //}
