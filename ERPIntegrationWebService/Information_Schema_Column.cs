@@ -6,7 +6,7 @@ using System.Web;
 namespace ERPIntegrationWebService
 {
     public class Information_Schema_Column
-    {
+    {//hej
         private string COLUMN_NAME;
 
         public Information_Schema_Column() { }

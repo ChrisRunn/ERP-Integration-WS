@@ -15,7 +15,7 @@ namespace ERPIntegrationWebService
         {
             get { return name; }
             set { name = value; }
-        }//hej
+        }
 
     }
 }

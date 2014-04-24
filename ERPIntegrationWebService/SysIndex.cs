@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 
 namespace ERPIntegrationWebService
-{//hej
+{
     public class SysIndex
     {
 

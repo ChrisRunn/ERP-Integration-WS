@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-//hej
+
 namespace ERPIntegrationWebService
 {
     public class SysColumn

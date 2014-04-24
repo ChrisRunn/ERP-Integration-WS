@@ -6,7 +6,7 @@ using System.Web;
 namespace ERPIntegrationWebService
 {
     public class SysObject
-    {//hej
+    {
         private string id;
         private string name;
         private string xtype;
