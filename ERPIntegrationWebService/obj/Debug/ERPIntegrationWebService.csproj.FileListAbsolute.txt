@@ -19,3 +19,9 @@ C:\Users\Marcus Jacobsson\git\ERP-Integration- WebServices\ERPIntegrationWebServ
 C:\Users\Marcus Jacobsson\git\ERP-Integration- WebServices\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.csprojResolveAssemblyReference.cache
 C:\Users\Marcus Jacobsson\git\ERP-Integration- WebServices\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.dll
 C:\Users\Marcus Jacobsson\git\ERP-Integration- WebServices\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.pdb
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.dll.config
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.dll
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\bin\ERPIntegrationWebService.pdb
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.dll
+C:\Users\Public\Documents\Github\ERP WS\ERPIntegrationWebService\obj\Debug\ERPIntegrationWebService.pdb
