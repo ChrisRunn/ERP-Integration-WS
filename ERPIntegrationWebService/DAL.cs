@@ -11,7 +11,7 @@ namespace ERPIntegrationWebService
 {
     public class DAL
     {
-        string connectionString = "server=WILLIAM-PC\\WILLIAM ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
+        string connectionString = "server=localhost ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
 
         #region GENERISK METOD
         private void ExecuteUpdate(string sqlStr)
