@@ -6,12 +6,14 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
 using ERPIntegrationWebService.ERPIntegrationWSReference;
+using System.Configuration;
 
 namespace ERPIntegrationWebService
 {
     public class DAL
     {
-        string connectionString = "server=localhost ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
+        string connectionString = ConfigurationManager.ConnectionStrings["myConnectionString"].ConnectionString;
+        //string connectionString = "server=Localhost; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
 
         #region GENERISK METOD
         private void ExecuteUpdate(string sqlStr)
