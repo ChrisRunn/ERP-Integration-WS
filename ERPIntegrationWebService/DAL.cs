@@ -136,7 +136,7 @@ namespace ERPIntegrationWebService
         {
 
             SqlDataAdapter adapter = new SqlDataAdapter(
-            "select [First Name], [Last Name] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
+            "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
             DataSet employeeAbsenceDS = new DataSet();
             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             adapter.Fill(employeeAbsenceDS, "empsick");

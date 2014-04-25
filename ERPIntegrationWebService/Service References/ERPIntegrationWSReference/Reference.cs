@@ -973,12 +973,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class ShowAllEmployeesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Employee> ShowAllEmployeesResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Employee[] ShowAllEmployeesResult;
         
         public ShowAllEmployeesResponseBody() {
         }
         
-        public ShowAllEmployeesResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Employee> ShowAllEmployeesResult) {
+        public ShowAllEmployeesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.Employee[] ShowAllEmployeesResult) {
             this.ShowAllEmployeesResult = ShowAllEmployeesResult;
         }
     }
@@ -1034,12 +1034,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetEmployeeAndMetaDataResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetEmployeeAndMetaDataResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetEmployeeAndMetaDataResult;
         
         public GetEmployeeAndMetaDataResponseBody() {
         }
         
-        public GetEmployeeAndMetaDataResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetEmployeeAndMetaDataResult) {
+        public GetEmployeeAndMetaDataResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetEmployeeAndMetaDataResult) {
             this.GetEmployeeAndMetaDataResult = GetEmployeeAndMetaDataResult;
         }
     }
@@ -1095,12 +1095,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetEmployeeAndRelativesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery> GetEmployeeAndRelativesResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelativesResult;
         
         public GetEmployeeAndRelativesResponseBody() {
         }
         
-        public GetEmployeeAndRelativesResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery> GetEmployeeAndRelativesResult) {
+        public GetEmployeeAndRelativesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelativesResult) {
             this.GetEmployeeAndRelativesResult = GetEmployeeAndRelativesResult;
         }
     }
@@ -1156,12 +1156,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetSickEmployeeResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetSickEmployeeResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployeeResult;
         
         public GetSickEmployeeResponseBody() {
         }
         
-        public GetSickEmployeeResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetSickEmployeeResult) {
+        public GetSickEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployeeResult) {
             this.GetSickEmployeeResult = GetSickEmployeeResult;
         }
     }
@@ -1217,12 +1217,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetMostSickEmployeeResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetMostSickEmployeeResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetMostSickEmployeeResult;
         
         public GetMostSickEmployeeResponseBody() {
         }
         
-        public GetMostSickEmployeeResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetMostSickEmployeeResult) {
+        public GetMostSickEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetMostSickEmployeeResult) {
             this.GetMostSickEmployeeResult = GetMostSickEmployeeResult;
         }
     }
@@ -1278,12 +1278,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetAllKeysResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllKeysResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeysResult;
         
         public GetAllKeysResponseBody() {
         }
         
-        public GetAllKeysResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllKeysResult) {
+        public GetAllKeysResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeysResult) {
             this.GetAllKeysResult = GetAllKeysResult;
         }
     }
@@ -1339,12 +1339,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetAllIndexesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex> GetAllIndexesResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexesResult;
         
         public GetAllIndexesResponseBody() {
         }
         
-        public GetAllIndexesResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex> GetAllIndexesResult) {
+        public GetAllIndexesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexesResult) {
             this.GetAllIndexesResult = GetAllIndexesResult;
         }
     }
@@ -1400,12 +1400,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetAllConstraintsResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint> GetAllConstraintsResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraintsResult;
         
         public GetAllConstraintsResponseBody() {
         }
         
-        public GetAllConstraintsResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint> GetAllConstraintsResult) {
+        public GetAllConstraintsResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraintsResult) {
             this.GetAllConstraintsResult = GetAllConstraintsResult;
         }
     }
@@ -1461,12 +1461,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetAllTablesResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllTablesResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTablesResult;
         
         public GetAllTablesResponseBody() {
         }
         
-        public GetAllTablesResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllTablesResult) {
+        public GetAllTablesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTablesResult) {
             this.GetAllTablesResult = GetAllTablesResult;
         }
     }
@@ -1522,12 +1522,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetAllTables2ResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysTable> GetAllTables2Result;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2Result;
         
         public GetAllTables2ResponseBody() {
         }
         
-        public GetAllTables2ResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysTable> GetAllTables2Result) {
+        public GetAllTables2ResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2Result) {
             this.GetAllTables2Result = GetAllTables2Result;
         }
     }
@@ -1583,12 +1583,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetColumnsEmployeeResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn> GetColumnsEmployeeResult;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployeeResult;
         
         public GetColumnsEmployeeResponseBody() {
         }
         
-        public GetColumnsEmployeeResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn> GetColumnsEmployeeResult) {
+        public GetColumnsEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployeeResult) {
             this.GetColumnsEmployeeResult = GetColumnsEmployeeResult;
         }
     }
@@ -1644,12 +1644,12 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
     public partial class GetColumnsEmployee2ResponseBody {
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column> GetColumnsEmployee2Result;
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2Result;
         
         public GetColumnsEmployee2ResponseBody() {
         }
         
-        public GetColumnsEmployee2ResponseBody(System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column> GetColumnsEmployee2Result) {
+        public GetColumnsEmployee2ResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2Result) {
             this.GetColumnsEmployee2Result = GetColumnsEmployee2Result;
         }
     }
@@ -1726,7 +1726,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.ShowAllEmployees(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Employee> ShowAllEmployees() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Employee[] ShowAllEmployees() {
             ERPIntegrationWebService.ERPIntegrationWSReference.ShowAllEmployeesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.ShowAllEmployeesRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.ShowAllEmployeesRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.ShowAllEmployeesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).ShowAllEmployees(inValue);
@@ -1738,7 +1738,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetEmployeeAndMetaData(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetEmployeeAndMetaData() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetEmployeeAndMetaData() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndMetaDataRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndMetaDataRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndMetaDataRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndMetaDataResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetEmployeeAndMetaData(inValue);
@@ -1750,7 +1750,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetEmployeeAndRelatives(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery> GetEmployeeAndRelatives() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelatives() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetEmployeeAndRelatives(inValue);
@@ -1762,7 +1762,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetSickEmployee(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetSickEmployee() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployee() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetSickEmployee(inValue);
@@ -1774,7 +1774,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetMostSickEmployee(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick> GetMostSickEmployee() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetMostSickEmployee() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetMostSickEmployee(inValue);
@@ -1786,7 +1786,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetAllKeys(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllKeys() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeys() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllKeys(inValue);
@@ -1798,7 +1798,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetAllIndexes(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex> GetAllIndexes() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexes() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllIndexes(inValue);
@@ -1810,7 +1810,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetAllConstraints(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint> GetAllConstraints() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraints() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllConstraints(inValue);
@@ -1822,7 +1822,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetAllTables(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysObject> GetAllTables() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTables() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllTables(inValue);
@@ -1834,7 +1834,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetAllTables2(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysTable> GetAllTables2() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2RequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Response retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllTables2(inValue);
@@ -1846,7 +1846,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetColumnsEmployee(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn> GetColumnsEmployee() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployee() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetColumnsEmployee(inValue);
@@ -1858,7 +1858,7 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             return base.Channel.GetColumnsEmployee2(request);
         }
         
-        public System.Collections.Generic.List<ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column> GetColumnsEmployee2() {
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2() {
             ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request();
             inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2RequestBody();
             ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Response retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetColumnsEmployee2(inValue);
