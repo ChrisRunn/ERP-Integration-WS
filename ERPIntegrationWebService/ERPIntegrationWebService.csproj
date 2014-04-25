@@ -56,6 +56,9 @@
   <ItemGroup>
     <Content Include="ERPIntegrationWS.asmx" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.Employee.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>

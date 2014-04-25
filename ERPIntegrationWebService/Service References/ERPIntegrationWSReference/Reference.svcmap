@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7241a6fa-51e1-41d5-9b1e-0fef977354f9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3c79ded7-07d8-4ed0-963b-bcbf2ebc5e17" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -8,9 +8,7 @@
     <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
-    <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
-    </CollectionMappings>
+    <CollectionMappings />
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
@@ -23,8 +21,8 @@
     <MetadataSource Address="http://localhost:61058/ERPIntegrationWS.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ERPIntegrationWS.disco" MetadataType="Disco" ID="a5e734af-4df1-4076-8757-c6937015a7ea" SourceId="1" SourceUrl="http://localhost:61058/ERPIntegrationWS.asmx?disco" />
-    <MetadataFile FileName="ERPIntegrationWS.wsdl" MetadataType="Wsdl" ID="1ce794ca-c12e-4c4d-962e-73aa92b0ffd6" SourceId="1" SourceUrl="http://localhost:61058/ERPIntegrationWS.asmx?wsdl" />
+    <MetadataFile FileName="ERPIntegrationWS.disco" MetadataType="Disco" ID="db469e08-bf3b-448f-bcd5-71eeb1c375f5" SourceId="1" SourceUrl="http://localhost:61058/ERPIntegrationWS.asmx?disco" />
+    <MetadataFile FileName="ERPIntegrationWS.wsdl" MetadataType="Wsdl" ID="7b854798-0952-4581-a280-2f2149121488" SourceId="1" SourceUrl="http://localhost:61058/ERPIntegrationWS.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
