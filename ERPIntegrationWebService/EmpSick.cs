@@ -5,18 +5,26 @@ using System.Web;
 
 namespace ERPIntegrationWebService
 {
-    public class Employee
+    public class EmpSick
     {
+        private string description;
+        private string casueOfAbsenceCode;
         private string firstName;
         private string lastName;
-        private string employeeNo;
 
-        public Employee() { }
+        public EmpSick() { }
 
-        public string EmployeeNo
+
+        public string Description
         {
-            get { return employeeNo; }
-            set { employeeNo = value; }
+            get { return description; }
+            set { description = value; }
+        }
+
+        public string CasueOfAbsenceCode
+        {
+            get { return casueOfAbsenceCode; }
+            set { casueOfAbsenceCode = value; }
         }
 
         public string FirstName

@@ -9,97 +9,90 @@
 //------------------------------------------------------------------------------
 
 namespace ERPIntegrationWebService.ERPIntegrationWSReference {
-    using System.Data;
+    using System.Runtime.Serialization;
+    using System;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="http://brokerapplication.org/", ConfigurationName="ERPIntegrationWSReference.ERPIntegrationWSSoap")]
-    public interface ERPIntegrationWSSoap {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/InsertEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void InsertEmployee(string no, string name);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/UpdateEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void UpdateEmployee(string no, string name, string lastName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/DeleteEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void DeleteEmployee(string no);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/SearchEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        void SearchEmployee(string searchString);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetEmployeeAndMetaData", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetEmployeeAndMetaData();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetEmployeeAndRelatives", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetEmployeeAndRelatives();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetSickEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetSickEmployee();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetMostSickEmployee", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataSet GetMostSickEmployee();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllKeys", ReplyAction="*")]
-        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeys();
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.18408")]
-    [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://brokerapplication.org/")]
-    public partial class SysObject : object, System.ComponentModel.INotifyPropertyChanged {
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmpRelativeQuery", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class EmpRelativeQuery : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        private string idField;
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        private string xtypeField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RelFirstNameField;
         
-        private string nameField;
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmpFirstNameField;
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string Id {
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmpLastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RelativeCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
-                return this.idField;
+                return this.extensionDataField;
             }
             set {
-                this.idField = value;
-                this.RaisePropertyChanged("Id");
+                this.extensionDataField = value;
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Xtype {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string RelFirstName {
             get {
-                return this.xtypeField;
+                return this.RelFirstNameField;
             }
             set {
-                this.xtypeField = value;
-                this.RaisePropertyChanged("Xtype");
+                if ((object.ReferenceEquals(this.RelFirstNameField, value) != true)) {
+                    this.RelFirstNameField = value;
+                    this.RaisePropertyChanged("RelFirstName");
+                }
             }
         }
         
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string Name {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string EmpFirstName {
             get {
-                return this.nameField;
+                return this.EmpFirstNameField;
             }
             set {
-                this.nameField = value;
-                this.RaisePropertyChanged("Name");
+                if ((object.ReferenceEquals(this.EmpFirstNameField, value) != true)) {
+                    this.EmpFirstNameField = value;
+                    this.RaisePropertyChanged("EmpFirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string EmpLastName {
+            get {
+                return this.EmpLastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmpLastNameField, value) != true)) {
+                    this.EmpLastNameField = value;
+                    this.RaisePropertyChanged("EmpLastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string RelativeCode {
+            get {
+                return this.RelativeCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RelativeCodeField, value) != true)) {
+                    this.RelativeCodeField = value;
+                    this.RaisePropertyChanged("RelativeCode");
+                }
             }
         }
         
@@ -110,6 +103,1453 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
             if ((propertyChanged != null)) {
                 propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
             }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmpSick", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class EmpSick : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CasueOfAbsenceCodeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string CasueOfAbsenceCode {
+            get {
+                return this.CasueOfAbsenceCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CasueOfAbsenceCodeField, value) != true)) {
+                    this.CasueOfAbsenceCodeField = value;
+                    this.RaisePropertyChanged("CasueOfAbsenceCode");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmployeeAbsence", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class EmployeeAbsence : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CasueOfAbsenceCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string CasueOfAbsenceCode {
+            get {
+                return this.CasueOfAbsenceCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CasueOfAbsenceCodeField, value) != true)) {
+                    this.CasueOfAbsenceCodeField = value;
+                    this.RaisePropertyChanged("CasueOfAbsenceCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysObject", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class SysObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string XtypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Xtype {
+            get {
+                return this.XtypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.XtypeField, value) != true)) {
+                    this.XtypeField = value;
+                    this.RaisePropertyChanged("Xtype");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysIndex", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class SysIndex : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysConstraint", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class SysConstraint : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ConstidField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Constid {
+            get {
+                return this.ConstidField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ConstidField, value) != true)) {
+                    this.ConstidField = value;
+                    this.RaisePropertyChanged("Constid");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysTable", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class SysTable : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysColumn", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class SysColumn : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string XtypeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string Xtype {
+            get {
+                return this.XtypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.XtypeField, value) != true)) {
+                    this.XtypeField = value;
+                    this.RaisePropertyChanged("Xtype");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Information_Schema_Column", Namespace="http://brokerapplication.org/")]
+    [System.SerializableAttribute()]
+    public partial class Information_Schema_Column : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string COLUMN_NAME1Field;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false)]
+        public string COLUMN_NAME1 {
+            get {
+                return this.COLUMN_NAME1Field;
+            }
+            set {
+                if ((object.ReferenceEquals(this.COLUMN_NAME1Field, value) != true)) {
+                    this.COLUMN_NAME1Field = value;
+                    this.RaisePropertyChanged("COLUMN_NAME1");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://brokerapplication.org/", ConfigurationName="ERPIntegrationWSReference.ERPIntegrationWSSoap")]
+    public interface ERPIntegrationWSSoap {
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/InsertEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeResponse InsertEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/UpdateEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeResponse UpdateEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name no from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/DeleteEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeResponse DeleteEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name searchString from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/SearchEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeResponse SearchEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetEmployeeAndRelativesResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetEmployeeAndRelatives", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponse GetEmployeeAndRelatives(ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetSickEmployeeResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetSickEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponse GetSickEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetMostSickEmployeeResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetMostSickEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponse GetMostSickEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetAllKeysResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllKeys", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponse GetAllKeys(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetAllIndexesResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllIndexes", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponse GetAllIndexes(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetAllConstraintsResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllConstraints", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponse GetAllConstraints(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetAllTablesResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllTables", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponse GetAllTables(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetAllTables2Result from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetAllTables2", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Response GetAllTables2(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request request);
+        
+        // CODEGEN: Generating message contract since element name GetColumnsEmployeeResult from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetColumnsEmployee", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponse GetColumnsEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetColumnsEmployee2Result from namespace http://brokerapplication.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://brokerapplication.org/GetColumnsEmployee2", ReplyAction="*")]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Response GetColumnsEmployee2(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request request);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequestBody Body;
+        
+        public InsertEmployeeRequest() {
+        }
+        
+        public InsertEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class InsertEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string name;
+        
+        public InsertEmployeeRequestBody() {
+        }
+        
+        public InsertEmployeeRequestBody(string no, string name) {
+            this.no = no;
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class InsertEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="InsertEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeResponseBody Body;
+        
+        public InsertEmployeeResponse() {
+        }
+        
+        public InsertEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class InsertEmployeeResponseBody {
+        
+        public InsertEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequestBody Body;
+        
+        public UpdateEmployeeRequest() {
+        }
+        
+        public UpdateEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class UpdateEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string name;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
+        public string lastName;
+        
+        public UpdateEmployeeRequestBody() {
+        }
+        
+        public UpdateEmployeeRequestBody(string no, string name, string lastName) {
+            this.no = no;
+            this.name = name;
+            this.lastName = lastName;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class UpdateEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="UpdateEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeResponseBody Body;
+        
+        public UpdateEmployeeResponse() {
+        }
+        
+        public UpdateEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class UpdateEmployeeResponseBody {
+        
+        public UpdateEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequestBody Body;
+        
+        public DeleteEmployeeRequest() {
+        }
+        
+        public DeleteEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class DeleteEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string no;
+        
+        public DeleteEmployeeRequestBody() {
+        }
+        
+        public DeleteEmployeeRequestBody(string no) {
+            this.no = no;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class DeleteEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="DeleteEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeResponseBody Body;
+        
+        public DeleteEmployeeResponse() {
+        }
+        
+        public DeleteEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class DeleteEmployeeResponseBody {
+        
+        public DeleteEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SearchEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SearchEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequestBody Body;
+        
+        public SearchEmployeeRequest() {
+        }
+        
+        public SearchEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class SearchEmployeeRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string searchString;
+        
+        public SearchEmployeeRequestBody() {
+        }
+        
+        public SearchEmployeeRequestBody(string searchString) {
+            this.searchString = searchString;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SearchEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SearchEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeResponseBody Body;
+        
+        public SearchEmployeeResponse() {
+        }
+        
+        public SearchEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class SearchEmployeeResponseBody {
+        
+        public SearchEmployeeResponseBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeeAndRelativesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelatives", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequestBody Body;
+        
+        public GetEmployeeAndRelativesRequest() {
+        }
+        
+        public GetEmployeeAndRelativesRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetEmployeeAndRelativesRequestBody {
+        
+        public GetEmployeeAndRelativesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetEmployeeAndRelativesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetEmployeeAndRelativesResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponseBody Body;
+        
+        public GetEmployeeAndRelativesResponse() {
+        }
+        
+        public GetEmployeeAndRelativesResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetEmployeeAndRelativesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelativesResult;
+        
+        public GetEmployeeAndRelativesResponseBody() {
+        }
+        
+        public GetEmployeeAndRelativesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelativesResult) {
+            this.GetEmployeeAndRelativesResult = GetEmployeeAndRelativesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetSickEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSickEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequestBody Body;
+        
+        public GetSickEmployeeRequest() {
+        }
+        
+        public GetSickEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetSickEmployeeRequestBody {
+        
+        public GetSickEmployeeRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetSickEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetSickEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponseBody Body;
+        
+        public GetSickEmployeeResponse() {
+        }
+        
+        public GetSickEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetSickEmployeeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployeeResult;
+        
+        public GetSickEmployeeResponseBody() {
+        }
+        
+        public GetSickEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployeeResult) {
+            this.GetSickEmployeeResult = GetSickEmployeeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetMostSickEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMostSickEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequestBody Body;
+        
+        public GetMostSickEmployeeRequest() {
+        }
+        
+        public GetMostSickEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetMostSickEmployeeRequestBody {
+        
+        public GetMostSickEmployeeRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetMostSickEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMostSickEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponseBody Body;
+        
+        public GetMostSickEmployeeResponse() {
+        }
+        
+        public GetMostSickEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetMostSickEmployeeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmployeeAbsence[] GetMostSickEmployeeResult;
+        
+        public GetMostSickEmployeeResponseBody() {
+        }
+        
+        public GetMostSickEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.EmployeeAbsence[] GetMostSickEmployeeResult) {
+            this.GetMostSickEmployeeResult = GetMostSickEmployeeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllKeysRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllKeys", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequestBody Body;
+        
+        public GetAllKeysRequest() {
+        }
+        
+        public GetAllKeysRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetAllKeysRequestBody {
+        
+        public GetAllKeysRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllKeysResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllKeysResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponseBody Body;
+        
+        public GetAllKeysResponse() {
+        }
+        
+        public GetAllKeysResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetAllKeysResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeysResult;
+        
+        public GetAllKeysResponseBody() {
+        }
+        
+        public GetAllKeysResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeysResult) {
+            this.GetAllKeysResult = GetAllKeysResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllIndexesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllIndexes", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequestBody Body;
+        
+        public GetAllIndexesRequest() {
+        }
+        
+        public GetAllIndexesRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetAllIndexesRequestBody {
+        
+        public GetAllIndexesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllIndexesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllIndexesResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponseBody Body;
+        
+        public GetAllIndexesResponse() {
+        }
+        
+        public GetAllIndexesResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetAllIndexesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexesResult;
+        
+        public GetAllIndexesResponseBody() {
+        }
+        
+        public GetAllIndexesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexesResult) {
+            this.GetAllIndexesResult = GetAllIndexesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllConstraintsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllConstraints", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequestBody Body;
+        
+        public GetAllConstraintsRequest() {
+        }
+        
+        public GetAllConstraintsRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetAllConstraintsRequestBody {
+        
+        public GetAllConstraintsRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllConstraintsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllConstraintsResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponseBody Body;
+        
+        public GetAllConstraintsResponse() {
+        }
+        
+        public GetAllConstraintsResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetAllConstraintsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraintsResult;
+        
+        public GetAllConstraintsResponseBody() {
+        }
+        
+        public GetAllConstraintsResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraintsResult) {
+            this.GetAllConstraintsResult = GetAllConstraintsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllTablesRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllTables", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequestBody Body;
+        
+        public GetAllTablesRequest() {
+        }
+        
+        public GetAllTablesRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetAllTablesRequestBody {
+        
+        public GetAllTablesRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllTablesResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllTablesResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponseBody Body;
+        
+        public GetAllTablesResponse() {
+        }
+        
+        public GetAllTablesResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetAllTablesResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTablesResult;
+        
+        public GetAllTablesResponseBody() {
+        }
+        
+        public GetAllTablesResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTablesResult) {
+            this.GetAllTablesResult = GetAllTablesResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllTables2Request {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllTables2", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2RequestBody Body;
+        
+        public GetAllTables2Request() {
+        }
+        
+        public GetAllTables2Request(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2RequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetAllTables2RequestBody {
+        
+        public GetAllTables2RequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAllTables2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAllTables2Response", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2ResponseBody Body;
+        
+        public GetAllTables2Response() {
+        }
+        
+        public GetAllTables2Response(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2ResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetAllTables2ResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2Result;
+        
+        public GetAllTables2ResponseBody() {
+        }
+        
+        public GetAllTables2ResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2Result) {
+            this.GetAllTables2Result = GetAllTables2Result;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetColumnsEmployeeRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsEmployee", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequestBody Body;
+        
+        public GetColumnsEmployeeRequest() {
+        }
+        
+        public GetColumnsEmployeeRequest(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetColumnsEmployeeRequestBody {
+        
+        public GetColumnsEmployeeRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetColumnsEmployeeResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsEmployeeResponse", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponseBody Body;
+        
+        public GetColumnsEmployeeResponse() {
+        }
+        
+        public GetColumnsEmployeeResponse(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetColumnsEmployeeResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployeeResult;
+        
+        public GetColumnsEmployeeResponseBody() {
+        }
+        
+        public GetColumnsEmployeeResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployeeResult) {
+            this.GetColumnsEmployeeResult = GetColumnsEmployeeResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetColumnsEmployee2Request {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsEmployee2", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2RequestBody Body;
+        
+        public GetColumnsEmployee2Request() {
+        }
+        
+        public GetColumnsEmployee2Request(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2RequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetColumnsEmployee2RequestBody {
+        
+        public GetColumnsEmployee2RequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetColumnsEmployee2Response {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetColumnsEmployee2Response", Namespace="http://brokerapplication.org/", Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2ResponseBody Body;
+        
+        public GetColumnsEmployee2Response() {
+        }
+        
+        public GetColumnsEmployee2Response(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2ResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://brokerapplication.org/")]
+    public partial class GetColumnsEmployee2ResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2Result;
+        
+        public GetColumnsEmployee2ResponseBody() {
+        }
+        
+        public GetColumnsEmployee2ResponseBody(ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2Result) {
+            this.GetColumnsEmployee2Result = GetColumnsEmployee2Result;
         }
     }
     
@@ -140,40 +1580,175 @@ namespace ERPIntegrationWebService.ERPIntegrationWSReference {
                 base(binding, remoteAddress) {
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.InsertEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequest request) {
+            return base.Channel.InsertEmployee(request);
+        }
+        
         public void InsertEmployee(string no, string name) {
-            base.Channel.InsertEmployee(no, name);
+            ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.name = name;
+            ERPIntegrationWebService.ERPIntegrationWSReference.InsertEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).InsertEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.UpdateEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequest request) {
+            return base.Channel.UpdateEmployee(request);
         }
         
         public void UpdateEmployee(string no, string name, string lastName) {
-            base.Channel.UpdateEmployee(no, name, lastName);
+            ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeRequestBody();
+            inValue.Body.no = no;
+            inValue.Body.name = name;
+            inValue.Body.lastName = lastName;
+            ERPIntegrationWebService.ERPIntegrationWSReference.UpdateEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).UpdateEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.DeleteEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequest request) {
+            return base.Channel.DeleteEmployee(request);
         }
         
         public void DeleteEmployee(string no) {
-            base.Channel.DeleteEmployee(no);
+            ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeRequestBody();
+            inValue.Body.no = no;
+            ERPIntegrationWebService.ERPIntegrationWSReference.DeleteEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).DeleteEmployee(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.SearchEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequest request) {
+            return base.Channel.SearchEmployee(request);
         }
         
         public void SearchEmployee(string searchString) {
-            base.Channel.SearchEmployee(searchString);
+            ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeRequestBody();
+            inValue.Body.searchString = searchString;
+            ERPIntegrationWebService.ERPIntegrationWSReference.SearchEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).SearchEmployee(inValue);
         }
         
-        public System.Data.DataSet GetEmployeeAndMetaData() {
-            return base.Channel.GetEmployeeAndMetaData();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetEmployeeAndRelatives(ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest request) {
+            return base.Channel.GetEmployeeAndRelatives(request);
         }
         
-        public System.Data.DataSet GetEmployeeAndRelatives() {
-            return base.Channel.GetEmployeeAndRelatives();
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery[] GetEmployeeAndRelatives() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetEmployeeAndRelativesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetEmployeeAndRelatives(inValue);
+            return retVal.Body.GetEmployeeAndRelativesResult;
         }
         
-        public System.Data.DataSet GetSickEmployee() {
-            return base.Channel.GetSickEmployee();
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetSickEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest request) {
+            return base.Channel.GetSickEmployee(request);
         }
         
-        public System.Data.DataSet GetMostSickEmployee() {
-            return base.Channel.GetMostSickEmployee();
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick[] GetSickEmployee() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetSickEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetSickEmployee(inValue);
+            return retVal.Body.GetSickEmployeeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetMostSickEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest request) {
+            return base.Channel.GetMostSickEmployee(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.EmployeeAbsence[] GetMostSickEmployee() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetMostSickEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetMostSickEmployee(inValue);
+            return retVal.Body.GetMostSickEmployeeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetAllKeys(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest request) {
+            return base.Channel.GetAllKeys(request);
         }
         
         public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllKeys() {
-            return base.Channel.GetAllKeys();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllKeysResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllKeys(inValue);
+            return retVal.Body.GetAllKeysResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetAllIndexes(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest request) {
+            return base.Channel.GetAllIndexes(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex[] GetAllIndexes() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllIndexesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllIndexes(inValue);
+            return retVal.Body.GetAllIndexesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetAllConstraints(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest request) {
+            return base.Channel.GetAllConstraints(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint[] GetAllConstraints() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllConstraintsResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllConstraints(inValue);
+            return retVal.Body.GetAllConstraintsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetAllTables(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest request) {
+            return base.Channel.GetAllTables(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysObject[] GetAllTables() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTablesResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllTables(inValue);
+            return retVal.Body.GetAllTablesResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Response ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetAllTables2(ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request request) {
+            return base.Channel.GetAllTables2(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysTable[] GetAllTables2() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Request();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2RequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetAllTables2Response retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetAllTables2(inValue);
+            return retVal.Body.GetAllTables2Result;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponse ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetColumnsEmployee(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest request) {
+            return base.Channel.GetColumnsEmployee(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn[] GetColumnsEmployee() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequest();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeRequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployeeResponse retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetColumnsEmployee(inValue);
+            return retVal.Body.GetColumnsEmployeeResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Response ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap.GetColumnsEmployee2(ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request request) {
+            return base.Channel.GetColumnsEmployee2(request);
+        }
+        
+        public ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column[] GetColumnsEmployee2() {
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request inValue = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Request();
+            inValue.Body = new ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2RequestBody();
+            ERPIntegrationWebService.ERPIntegrationWSReference.GetColumnsEmployee2Response retVal = ((ERPIntegrationWebService.ERPIntegrationWSReference.ERPIntegrationWSSoap)(this)).GetColumnsEmployee2(inValue);
+            return retVal.Body.GetColumnsEmployee2Result;
         }
     }
 }
