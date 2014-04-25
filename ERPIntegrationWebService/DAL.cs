@@ -16,6 +16,7 @@ namespace ERPIntegrationWebService
         #region GENERISK METOD
         private void ExecuteUpdate(string sqlStr)
         {
+           
             SqlConnection con = new SqlConnection(connectionString);
             Debug.WriteLine(sqlStr);
             try
@@ -24,6 +25,22 @@ namespace ERPIntegrationWebService
                 SqlCommand com = new SqlCommand(sqlStr, con);
                 com.ExecuteNonQuery();
 
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
             finally
             {
@@ -43,6 +60,22 @@ namespace ERPIntegrationWebService
                 con.Open();
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
             }
 
             finally
@@ -77,28 +110,19 @@ namespace ERPIntegrationWebService
 
         public List<Employee> ShowAllEmployees()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select * from [CRONUS Sverige AB$Employee]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "employee");
+               string sqlStr ="select * from [CRONUS Sverige AB$Employee]";
+                DataTable dt = ExecuteQuery(sqlStr);
+                List<Employee> employeeAbsenceList = new List<Employee>();
 
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["Employee"];
-            List<Employee> employeeAbsenceList = new List<Employee>();
-
-            foreach (DataRow dataRow in dt.Rows)
-            {
-                Employee pb = new Employee();
-                pb.EmployeeNo = dataRow["No_"].ToString();
-                pb.FirstName = dataRow["First Name"].ToString();
-                pb.LastName = dataRow["Last Name"].ToString();
-                employeeAbsenceList.Add(pb);
-            }
-
-
-            return employeeAbsenceList;
-
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    Employee pb = new Employee();
+                    pb.EmployeeNo = dataRow["No_"].ToString();
+                    pb.FirstName = dataRow["First Name"].ToString();
+                    pb.LastName = dataRow["Last Name"].ToString();
+                    employeeAbsenceList.Add(pb);
+                }
+                return employeeAbsenceList;
         }
 
         #endregion Select, Delete, Update, Insert
@@ -107,112 +131,173 @@ namespace ERPIntegrationWebService
 
         public List<SysObject> GetEmployeeAndMetaData()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select s.name, s.id, s.xtype from dbo.sysobjects s where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
-            List<SysObject> employeeAbsenceList = new List<SysObject>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysObject pb = new SysObject();
-                pb.Name = dataRow["name"].ToString();
-                pb.Id = dataRow["id"].ToString();
-                pb.Xtype = dataRow["xtype"].ToString();
-                employeeAbsenceList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "select s.name, s.id, s.xtype from dbo.sysobjects s where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'", connectionString);
+                DataSet employeeAbsenceDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeAbsenceDS, "empsick");
+
+                DataTable dt = new DataTable();
+                dt = employeeAbsenceDS.Tables["EmpSick"];
+                List<SysObject> employeeAbsenceList = new List<SysObject>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysObject pb = new SysObject();
+                    pb.Name = dataRow["name"].ToString();
+                    pb.Id = dataRow["id"].ToString();
+                    pb.Xtype = dataRow["xtype"].ToString();
+                    employeeAbsenceList.Add(pb);
+                }
+                return employeeAbsenceList;
             }
-
-
-            return employeeAbsenceList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         public List<EmpSick> GetSickEmployee()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
-            List<EmpSick> employeeAbsenceList = new List<EmpSick>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                EmpSick pb = new EmpSick();
-                pb.FirstName = dataRow["First Name"].ToString();
-                pb.LastName = dataRow["Last Name"].ToString();
-                pb.Quantity = dataRow["Quantity"].ToString();
-                employeeAbsenceList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
+                DataSet employeeAbsenceDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeAbsenceDS, "empsick");
+
+                DataTable dt = new DataTable();
+                dt = employeeAbsenceDS.Tables["EmpSick"];
+                List<EmpSick> employeeAbsenceList = new List<EmpSick>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    EmpSick pb = new EmpSick();
+                    pb.FirstName = dataRow["First Name"].ToString();
+                    pb.LastName = dataRow["Last Name"].ToString();
+                    pb.Quantity = dataRow["Quantity"].ToString();
+                    employeeAbsenceList.Add(pb);
+                }
+                return employeeAbsenceList;
             }
-
-
-            return employeeAbsenceList;
-
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<EmpSick> GetMostSickEmployee()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
-            List<EmpSick> employeeAbsenceList = new List<EmpSick>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                EmpSick pb = new EmpSick();
-                pb.FirstName = dataRow["First Name"].ToString();
-                pb.LastName = dataRow["Last Name"].ToString();
-                pb.Quantity = dataRow["Quantity"].ToString();
-                employeeAbsenceList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
+                DataSet employeeAbsenceDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeAbsenceDS, "empsick");
+
+                DataTable dt = new DataTable();
+                dt = employeeAbsenceDS.Tables["EmpSick"];
+                List<EmpSick> employeeAbsenceList = new List<EmpSick>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    EmpSick pb = new EmpSick();
+                    pb.FirstName = dataRow["First Name"].ToString();
+                    pb.LastName = dataRow["Last Name"].ToString();
+                    pb.Quantity = dataRow["Quantity"].ToString();
+                    employeeAbsenceList.Add(pb);
+                }
+                return employeeAbsenceList;
             }
-
-
-            return employeeAbsenceList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         public List<EmpRelativeQuery> GetEmployeeAndRelatives()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]", connectionString);
-            DataSet employeeRelativeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeRelativeDS, "emprelativequery");
-
-            DataTable dt = new DataTable();
-            dt = employeeRelativeDS.Tables["EmpRelativeQuery"];
-            List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                EmpRelativeQuery pb = new EmpRelativeQuery();
-                pb.EmpFirstName = dataRow[0].ToString();
-                pb.EmpLastName = dataRow[1].ToString();
-                pb.RelativeCode = dataRow[2].ToString();
-                pb.RelFirstName = dataRow[3].ToString();
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]", connectionString);
+                DataSet employeeRelativeDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeRelativeDS, "emprelativequery");
 
+                DataTable dt = new DataTable();
+                dt = employeeRelativeDS.Tables["EmpRelativeQuery"];
+                List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
 
-                employeeRelativeList.Add(pb);
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    EmpRelativeQuery pb = new EmpRelativeQuery();
+                    pb.EmpFirstName = dataRow[0].ToString();
+                    pb.EmpLastName = dataRow[1].ToString();
+                    pb.RelativeCode = dataRow[2].ToString();
+                    pb.RelFirstName = dataRow[3].ToString();
+                    employeeRelativeList.Add(pb);
+                }
+                return employeeRelativeList;
             }
-
-
-            return employeeRelativeList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
@@ -221,182 +306,293 @@ namespace ERPIntegrationWebService
         #region Uppgift B
         public List<SysObject> GetAllKeys()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [id], [xtype], [name] FROM sysobjects WHERE xtype = 'F' OR xtype = 'PK'", connectionString);
-            DataSet sysObjectDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysObjectDS, "sysobjects");
-
-            DataTable dt = new DataTable();
-            dt = sysObjectDS.Tables["SysObjects"];
-            List<SysObject> sysObjectList = new List<SysObject>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysObject pb = new SysObject();
-                pb.Id = dataRow["id"].ToString();
-                pb.Xtype = dataRow["xtype"].ToString();
-                pb.Name = dataRow["name"].ToString();
-                sysObjectList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT TOP 100 [id], [xtype], [name] FROM sysobjects WHERE xtype = 'F' OR xtype = 'PK'", connectionString);
+                DataSet sysObjectDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(sysObjectDS, "sysobjects");
+
+                DataTable dt = new DataTable();
+                dt = sysObjectDS.Tables["SysObjects"];
+                List<SysObject> sysObjectList = new List<SysObject>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysObject pb = new SysObject();
+                    pb.Id = dataRow["id"].ToString();
+                    pb.Xtype = dataRow["xtype"].ToString();
+                    pb.Name = dataRow["name"].ToString();
+                    sysObjectList.Add(pb);
+                }
+                return sysObjectList;
             }
-
-
-            return sysObjectList;
-
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<SysIndex> GetAllIndexes()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
-            DataSet sysIndexDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysIndexDS, "sysindex");
-
-            DataTable dt = new DataTable(); 
-            dt = sysIndexDS.Tables["SysIndex"];
-            List<SysIndex> sysIndexList = new List<SysIndex>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysIndex pb = new SysIndex();
-                pb.Id = dataRow["id"].ToString();
-                pb.Status = dataRow["status"].ToString();
-                sysIndexList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
+                DataSet sysIndexDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(sysIndexDS, "sysindex");
+
+                DataTable dt = new DataTable();
+                dt = sysIndexDS.Tables["SysIndex"];
+                List<SysIndex> sysIndexList = new List<SysIndex>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysIndex pb = new SysIndex();
+                    pb.Id = dataRow["id"].ToString();
+                    pb.Status = dataRow["status"].ToString();
+                    sysIndexList.Add(pb);
+                }
+                return sysIndexList;
             }
-
-
-            return sysIndexList;
-
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<SysObject> GetAllTables()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
-            DataSet sysTableDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysTableDS, "sysobject");
-
-            DataTable dt = new DataTable();
-            dt = sysTableDS.Tables["SysObject"];
-            List<SysObject> sysTableList = new List<SysObject>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysObject pb = new SysObject();
-                pb.Name = dataRow["name"].ToString();
-                sysTableList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
+                DataSet sysTableDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(sysTableDS, "sysobject");
+
+                DataTable dt = new DataTable();
+                dt = sysTableDS.Tables["SysObject"];
+                List<SysObject> sysTableList = new List<SysObject>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysObject pb = new SysObject();
+                    pb.Name = dataRow["name"].ToString();
+                    sysTableList.Add(pb);
+                }
+                return sysTableList;
             }
-
-
-            return sysTableList;
-
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<SysTable> GetAllTables2()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [name] FROM sys.tables", connectionString);
-            DataSet sysTableDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysTableDS, "systable");
-
-            DataTable dt = new DataTable();
-            dt = sysTableDS.Tables["SysTable"];
-            List<SysTable> sysTableList = new List<SysTable>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysTable pb = new SysTable();
-                pb.Name = dataRow["name"].ToString();
-                sysTableList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT TOP 100 [name] FROM sys.tables", connectionString);
+                DataSet sysTableDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(sysTableDS, "systable");
+
+                DataTable dt = new DataTable();
+                dt = sysTableDS.Tables["SysTable"];
+                List<SysTable> sysTableList = new List<SysTable>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysTable pb = new SysTable();
+                    pb.Name = dataRow["name"].ToString();
+                    sysTableList.Add(pb);
+                }
+                return sysTableList;
             }
-
-
-            return sysTableList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         public List<SysConstraint> GetAllConstraints()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
-            DataSet sysConstraintDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysConstraintDS, "sysconstraint");
-
-            DataTable dt = new DataTable();
-            dt = sysConstraintDS.Tables["SysConstraint"];
-            List<SysConstraint> sysConstraintList = new List<SysConstraint>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysConstraint pb = new SysConstraint();
-                pb.Id = dataRow["id"].ToString();
-                pb.Constid = dataRow["constid"].ToString();
-                sysConstraintList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
+                DataSet sysConstraintDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(sysConstraintDS, "sysconstraint");
+
+                DataTable dt = new DataTable();
+                dt = sysConstraintDS.Tables["SysConstraint"];
+                List<SysConstraint> sysConstraintList = new List<SysConstraint>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysConstraint pb = new SysConstraint();
+                    pb.Id = dataRow["id"].ToString();
+                    pb.Constid = dataRow["constid"].ToString();
+                    sysConstraintList.Add(pb);
+                }
+                return sysConstraintList;
             }
-
-
-            return sysConstraintList;
-
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public List<SysColumn> GetColumnsEmployee()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "syscolumn");
-
-            DataTable dt = new DataTable();
-            dt = employeeDS.Tables["SysColumn"];
-            List<SysColumn> employeeList = new List<SysColumn>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                SysColumn pb = new SysColumn();
-                pb.Name = dataRow["name"].ToString();
-                pb.Id = dataRow["id"].ToString();
-                pb.Xtype = dataRow["xtype"].ToString();
-                employeeList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
+                DataSet employeeDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeDS, "syscolumn");
+
+                DataTable dt = new DataTable();
+                dt = employeeDS.Tables["SysColumn"];
+                List<SysColumn> employeeList = new List<SysColumn>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    SysColumn pb = new SysColumn();
+                    pb.Name = dataRow["name"].ToString();
+                    pb.Id = dataRow["id"].ToString();
+                    pb.Xtype = dataRow["xtype"].ToString();
+                    employeeList.Add(pb);
+                }
+
+                return employeeList;
             }
-
-
-            return employeeList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
         public List<Information_Schema_Column> GetColumnsEmployee2()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Information_Schema_Column");
-
-            DataTable dt = new DataTable();
-            dt = employeeDS.Tables["Information_Schema_Column"];
-            List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
-
-            foreach (DataRow dataRow in dt.Rows)
+            try
             {
-                Information_Schema_Column pb = new Information_Schema_Column();
-                pb.COLUMN_NAME1 = dataRow["COLUMN_NAME"].ToString();
-                employeeList.Add(pb);
+                SqlDataAdapter adapter = new SqlDataAdapter(
+                "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
+                DataSet employeeDS = new DataSet();
+                adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                adapter.Fill(employeeDS, "Information_Schema_Column");
+
+                DataTable dt = new DataTable();
+                dt = employeeDS.Tables["Information_Schema_Column"];
+                List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
+
+                foreach (DataRow dataRow in dt.Rows)
+                {
+                    Information_Schema_Column pb = new Information_Schema_Column();
+                    pb.COLUMN_NAME1 = dataRow["COLUMN_NAME"].ToString();
+                    employeeList.Add(pb);
+                }
+
+
+                return employeeList;
             }
-
-
-            return employeeList;
+            catch (SqlException)
+            {
+                throw;
+            }
+            catch (ArgumentException)
+            {
+                throw;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
            
