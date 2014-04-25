@@ -39,9 +39,9 @@ namespace ERPIntegrationWebService
         }
 
         [WebMethod(Description = "Shows a specific employee", EnableSession = false)]
-        public List<Employee> showAllEmployees()
+        public List<Employee> ShowAllEmployees()
         {
-            return dal.showAllEmployees();
+            return dal.ShowAllEmployees();
         }
 
         #endregion Select, Update, Delete, Insert

@@ -75,7 +75,7 @@ namespace ERPIntegrationWebService
 
         }
 
-        public List<Employee> showAllEmployees()
+        public List<Employee> ShowAllEmployees()
         {
             SqlDataAdapter adapter = new SqlDataAdapter(
             "select * from [CRONUS Sverige AB$Employee]", connectionString);
