@@ -319,7 +319,6 @@ namespace ERPIntegrationWebService
                 sysTableList.Add(pb);
             }
 
-
             return sysTableList;
 
         }
