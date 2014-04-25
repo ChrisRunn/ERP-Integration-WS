@@ -25,8 +25,7 @@ namespace ERPIntegrationWebService
                 con.Open();
                 SqlCommand com = new SqlCommand(sqlStr, con);
                 com.ExecuteNonQuery();
-
-            }
+            } 
             finally
             {
                 if (con.State == ConnectionState.Open)
@@ -46,7 +45,6 @@ namespace ERPIntegrationWebService
                 SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlStr, con);
                 dataAdapter.Fill(dataTable);
             }
-
             finally
             {
                 if (con.State == ConnectionState.Open)
@@ -60,34 +58,28 @@ namespace ERPIntegrationWebService
         #region Select, Delete, Update, Insert
         public void InsertEmployee(string no, string firstName, string lastName)
         {
-            string sqlStr = "INSERT INTO [CRONUS Sverige AB$Employee] VALUES (DEFAULT, '" + no + "', '" + firstName + "' , '0', '" + lastName + "', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '2007-12-13 00:00:00.000', 'NULL', '2007-12-13 00:00:00.000', '0', '0', '0', 1, '0', '0', '0', '0', '2007-12-13 00:00:00.000', 0, '2007-12-13 00:00:00.000', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '0', '0', '0')";
+            string sqlStr = "insert into [CRONUS Sverige AB$Employee] values (DEFAULT, '" + no + "', '" + firstName + "' , '0', '" + lastName + "', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '2007-12-13 00:00:00.000', 'NULL', '2007-12-13 00:00:00.000', '0', '0', '0', 1, '0', '0', '0', '0', '2007-12-13 00:00:00.000', 0, '2007-12-13 00:00:00.000', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '0', '0', '0')";
             ExecuteUpdate(sqlStr);
 
         }
         public void UpdateEmployee(string no, string firstName, string lastName)
         {
-            string sqlStr = "UPDATE [CRONUS Sverige AB$Employee] SET [First Name] = '" + firstName + "', [Last Name] = '" + lastName + "' WHERE [No_] = '" + no + "'";
+            string sqlStr = "update [CRONUS Sverige AB$Employee] set [First Name] = '" + firstName + "', [Last Name] = '" + lastName + "' where [No_] = '" + no + "'";
             ExecuteUpdate(sqlStr);
 
         }
         public void DeleteEmployee(string no)
         {
-            string sqlStr = "DELETE FROM [CRONUS Sverige AB$Employee] WHERE No_ = '" + no + "'";
+            string sqlStr = "delete from [CRONUS Sverige AB$Employee] where No_ = '" + no + "'";
             ExecuteUpdate(sqlStr);
 
         }
 
         public List<Employee> ShowAllEmployees()
         {
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select * from [CRONUS Sverige AB$Employee]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "employee");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["Employee"];
-            List<Employee> employeeAbsenceList = new List<Employee>();
+            string sqlStr = "select * from [CRONUS Sverige AB$Employee]";
+            DataTable dt = ExecuteQuery(sqlStr);
+            List<Employee> employeeList = new List<Employee>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -95,12 +87,9 @@ namespace ERPIntegrationWebService
                 pb.EmployeeNo = dataRow["No_"].ToString();
                 pb.FirstName = dataRow["First Name"].ToString();
                 pb.LastName = dataRow["Last Name"].ToString();
-                employeeAbsenceList.Add(pb);
+                employeeList.Add(pb);
             }
-
-
-            return employeeAbsenceList;
-
+            return employeeList;
         }
 
         #endregion Select, Delete, Update, Insert
@@ -110,14 +99,8 @@ namespace ERPIntegrationWebService
         public List<SysObject> GetEmployeeAndMetaData()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select s.name, s.id, s.xtype from dbo.sysobjects s where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
+            string sqlStr = "select s.name, s.id, s.xtype from dbo.sysobjects s where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysObject> employeeAbsenceList = new List<SysObject>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -128,24 +111,15 @@ namespace ERPIntegrationWebService
                 pb.Xtype = dataRow["xtype"].ToString();
                 employeeAbsenceList.Add(pb);
             }
-
-
             return employeeAbsenceList;
-
         }
 
         public List<EmpSick> GetSickEmployee()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
-            List<EmpSick> employeeAbsenceList = new List<EmpSick>();
+           string sqlStr = "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
+           DataTable dt = ExecuteQuery(sqlStr);
+           List<EmpSick> employeeAbsenceList = new List<EmpSick>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -155,23 +129,14 @@ namespace ERPIntegrationWebService
                 pb.Quantity = dataRow["Quantity"].ToString();
                 employeeAbsenceList.Add(pb);
             }
-
-
             return employeeAbsenceList;
-
         }
 
         public List<EmpSick> GetMostSickEmployee()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
-            DataSet employeeAbsenceDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeAbsenceDS, "empsick");
-
-            DataTable dt = new DataTable();
-            dt = employeeAbsenceDS.Tables["EmpSick"];
+            string sqlStr= "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<EmpSick> employeeAbsenceList = new List<EmpSick>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -182,24 +147,15 @@ namespace ERPIntegrationWebService
                 pb.Quantity = dataRow["Quantity"].ToString();
                 employeeAbsenceList.Add(pb);
             }
-
-
             return employeeAbsenceList;
-
         }
 
         public List<EmpRelativeQuery> GetEmployeeAndRelatives()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]", connectionString);
-            DataSet employeeRelativeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeRelativeDS, "emprelativequery");
-
-            DataTable dt = new DataTable();
-            dt = employeeRelativeDS.Tables["EmpRelativeQuery"];
-            List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
+         string sqlStr = "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]";
+         DataTable dt = ExecuteQuery(sqlStr);
+         List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -208,14 +164,9 @@ namespace ERPIntegrationWebService
                 pb.EmpLastName = dataRow[1].ToString();
                 pb.RelativeCode = dataRow[2].ToString();
                 pb.RelFirstName = dataRow[3].ToString();
-
-
                 employeeRelativeList.Add(pb);
             }
-
-
             return employeeRelativeList;
-
         }
 
         #endregion Uppgift A
@@ -223,15 +174,8 @@ namespace ERPIntegrationWebService
         #region Uppgift B
         public List<SysObject> GetAllKeys()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [id], [xtype], [name] FROM sysobjects WHERE xtype = 'F' OR xtype = 'PK'", connectionString);
-            DataSet sysObjectDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysObjectDS, "sysobjects");
-
-            DataTable dt = new DataTable();
-            dt = sysObjectDS.Tables["SysObjects"];
+            string sqlStr ="select top 100 [id], [xtype], [name] from sysobjects where xtype = 'F' or xtype = 'PK'";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysObject> sysObjectList = new List<SysObject>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -242,23 +186,13 @@ namespace ERPIntegrationWebService
                 pb.Name = dataRow["name"].ToString();
                 sysObjectList.Add(pb);
             }
-
-
             return sysObjectList;
-
         }
 
         public List<SysIndex> GetAllIndexes()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
-            DataSet sysIndexDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysIndexDS, "sysindex");
-
-            DataTable dt = new DataTable(); 
-            dt = sysIndexDS.Tables["SysIndex"];
+            string sqlStr ="select top 100 [id], [status] from sysindexes";
+            DataTable dt = ExecuteQuery(sqlStr); 
             List<SysIndex> sysIndexList = new List<SysIndex>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -268,24 +202,14 @@ namespace ERPIntegrationWebService
                 pb.Status = dataRow["status"].ToString();
                 sysIndexList.Add(pb);
             }
-
-
             return sysIndexList;
-
         }
 
         public List<SysObject> GetAllTables()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
-            DataSet sysTableDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysTableDS, "sysobject");
-
-            DataTable dt = new DataTable();
-            dt = sysTableDS.Tables["SysObject"];
-            List<SysObject> sysTableList = new List<SysObject>();
+           string sqlStr ="select top 100 [name] from sysobjects where xtype = 'U'";
+           DataTable dt = ExecuteQuery(sqlStr);
+           List<SysObject> sysTableList = new List<SysObject>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -293,23 +217,14 @@ namespace ERPIntegrationWebService
                 pb.Name = dataRow["name"].ToString();
                 sysTableList.Add(pb);
             }
-
-
             return sysTableList;
-
         }
 
         public List<SysTable> GetAllTables2()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [name] FROM sys.tables", connectionString);
-            DataSet sysTableDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysTableDS, "systable");
-
-            DataTable dt = new DataTable();
-            dt = sysTableDS.Tables["SysTable"];
+            string sqlStr ="select top 100 [name] from sys.tables";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysTable> sysTableList = new List<SysTable>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -326,16 +241,9 @@ namespace ERPIntegrationWebService
         public List<SysConstraint> GetAllConstraints()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
-            DataSet sysConstraintDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(sysConstraintDS, "sysconstraint");
-
-            DataTable dt = new DataTable();
-            dt = sysConstraintDS.Tables["SysConstraint"];
+            string sqlStr ="select top 100 [constid], [id] from sysconstraints";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysConstraint> sysConstraintList = new List<SysConstraint>();
-
             foreach (DataRow dataRow in dt.Rows)
             {
                 SysConstraint pb = new SysConstraint();
@@ -343,23 +251,13 @@ namespace ERPIntegrationWebService
                 pb.Constid = dataRow["constid"].ToString();
                 sysConstraintList.Add(pb);
             }
-
-
             return sysConstraintList;
-
         }
 
         public List<SysColumn> GetColumnsEmployee()
         {
-
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "syscolumn");
-
-            DataTable dt = new DataTable();
-            dt = employeeDS.Tables["SysColumn"];
+            string sqlStr = "select [name], [id], [xtype] from syscolumns where id = object_id('[CRONUS Sverige AB$Employee]')";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysColumn> employeeList = new List<SysColumn>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -370,24 +268,16 @@ namespace ERPIntegrationWebService
                 pb.Xtype = dataRow["xtype"].ToString();
                 employeeList.Add(pb);
             }
-
-
             return employeeList;
-
         }
 
         public List<Information_Schema_Column> GetColumnsEmployee2()
         {
 
-            SqlDataAdapter adapter = new SqlDataAdapter(
-            "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
-            DataSet employeeDS = new DataSet();
-            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-            adapter.Fill(employeeDS, "Information_Schema_Column");
+           string sqlStr = "select COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'CRONUS Sverige AB$Employee'";
 
-            DataTable dt = new DataTable();
-            dt = employeeDS.Tables["Information_Schema_Column"];
-            List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
+           DataTable dt = ExecuteQuery(sqlStr);
+           List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -395,8 +285,6 @@ namespace ERPIntegrationWebService
                 pb.COLUMN_NAME1 = dataRow["COLUMN_NAME"].ToString();
                 employeeList.Add(pb);
             }
-
-
             return employeeList;
 
         }
