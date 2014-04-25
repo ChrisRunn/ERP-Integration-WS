@@ -11,9 +11,15 @@ namespace ERPIntegrationWebService
         private string casueOfAbsenceCode;
         private string firstName;
         private string lastName;
+        private string quantity;
 
         public EmpSick() { }
 
+        public string Quantity
+        {
+            get { return quantity; }
+            set { quantity = value; }
+        }
 
         public string Description
         {

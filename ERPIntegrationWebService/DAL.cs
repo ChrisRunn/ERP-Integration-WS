@@ -11,7 +11,7 @@ namespace ERPIntegrationWebService
 {
     public class DAL
     {
-        string connectionString = "server=localhost ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
+        string connectionString = "server=WILLIAM-PC\\WILLIAM ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
 
         #region GENERISK METOD
         private void ExecuteUpdate(string sqlStr)
@@ -150,6 +150,7 @@ namespace ERPIntegrationWebService
                 EmpSick pb = new EmpSick();
                 pb.FirstName = dataRow["First Name"].ToString();
                 pb.LastName = dataRow["Last Name"].ToString();
+                pb.Quantity = dataRow["Quantity"].ToString();
                 employeeAbsenceList.Add(pb);
             }
 
@@ -162,7 +163,7 @@ namespace ERPIntegrationWebService
         {
 
             SqlDataAdapter adapter = new SqlDataAdapter(
-            "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
+            "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]", connectionString);
             DataSet employeeAbsenceDS = new DataSet();
             adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
             adapter.Fill(employeeAbsenceDS, "empsick");
@@ -176,6 +177,7 @@ namespace ERPIntegrationWebService
                 EmpSick pb = new EmpSick();
                 pb.FirstName = dataRow["First Name"].ToString();
                 pb.LastName = dataRow["Last Name"].ToString();
+                pb.Quantity = dataRow["Quantity"].ToString();
                 employeeAbsenceList.Add(pb);
             }
 
