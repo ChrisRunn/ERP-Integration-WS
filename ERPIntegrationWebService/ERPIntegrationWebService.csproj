@@ -59,6 +59,30 @@
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysObject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmployeeAbsence.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.disco" />
     <None Include="Service References\ERPIntegrationWSReference\configuration91.svcinfo" />
     <None Include="Service References\ERPIntegrationWSReference\configuration.svcinfo" />
@@ -72,6 +96,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL.cs" />
+    <Compile Include="Employee.cs" />
+    <Compile Include="EmployeeAbsence.cs" />
+    <Compile Include="EmployeeRelative.cs" />
+    <Compile Include="EmpRelativeQuery.cs" />
+    <Compile Include="EmpSick.cs" />
     <Compile Include="ERPIntegrationWS.asmx.cs">
       <DependentUpon>ERPIntegrationWS.asmx</DependentUpon>
       <SubType>Component</SubType>
