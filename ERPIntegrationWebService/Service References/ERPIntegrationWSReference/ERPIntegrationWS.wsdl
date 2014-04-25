@@ -6,7 +6,8 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -17,7 +18,7 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="no" type="s:string" />
-            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
             <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
           </s:sequence>
         </s:complexType>
@@ -35,16 +36,34 @@
       <s:element name="DeleteEmployeeResponse">
         <s:complexType />
       </s:element>
-      <s:element name="SearchEmployee">
+      <s:element name="showAllEmployees">
+        <s:complexType />
+      </s:element>
+      <s:element name="showAllEmployeesResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeAndMetaData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetEmployeeAndMetaDataResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GetEmployeeAndMetaDataResult" type="tns:ArrayOfSysObject" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:element name="SearchEmployeeResponse">
-        <s:complexType />
-      </s:element>
+      <s:complexType name="ArrayOfSysObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SysObject" nillable="true" type="tns:SysObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SysObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Xtype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
       <s:element name="GetEmployeeAndRelatives">
         <s:complexType />
       </s:element>
@@ -111,18 +130,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfSysObject">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="SysObject" nillable="true" type="tns:SysObject" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="SysObject">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Xtype" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="GetAllIndexes">
         <s:complexType />
       </s:element>
@@ -257,11 +264,17 @@
   <wsdl:message name="DeleteEmployeeSoapOut">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
   </wsdl:message>
-  <wsdl:message name="SearchEmployeeSoapIn">
-    <wsdl:part name="parameters" element="tns:SearchEmployee" />
+  <wsdl:message name="showAllEmployeesSoapIn">
+    <wsdl:part name="parameters" element="tns:showAllEmployees" />
   </wsdl:message>
-  <wsdl:message name="SearchEmployeeSoapOut">
-    <wsdl:part name="parameters" element="tns:SearchEmployeeResponse" />
+  <wsdl:message name="showAllEmployeesSoapOut">
+    <wsdl:part name="parameters" element="tns:showAllEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAndMetaDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndMetaData" />
+  </wsdl:message>
+  <wsdl:message name="GetEmployeeAndMetaDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetEmployeeAndMetaDataResponse" />
   </wsdl:message>
   <wsdl:message name="GetEmployeeAndRelativesSoapIn">
     <wsdl:part name="parameters" element="tns:GetEmployeeAndRelatives" />
@@ -339,10 +352,15 @@
       <wsdl:input message="tns:DeleteEmployeeSoapIn" />
       <wsdl:output message="tns:DeleteEmployeeSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="SearchEmployee">
+    <wsdl:operation name="showAllEmployees">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows a specific employee</wsdl:documentation>
-      <wsdl:input message="tns:SearchEmployeeSoapIn" />
-      <wsdl:output message="tns:SearchEmployeeSoapOut" />
+      <wsdl:input message="tns:showAllEmployeesSoapIn" />
+      <wsdl:output message="tns:showAllEmployeesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndMetaData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all employees and metadata</wsdl:documentation>
+      <wsdl:input message="tns:GetEmployeeAndMetaDataSoapIn" />
+      <wsdl:output message="tns:GetEmployeeAndMetaDataSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="GetEmployeeAndRelatives">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Shows all employees and relatives</wsdl:documentation>
@@ -424,8 +442,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SearchEmployee">
-      <soap:operation soapAction="http://brokerapplication.org/SearchEmployee" style="document" />
+    <wsdl:operation name="showAllEmployees">
+      <soap:operation soapAction="http://brokerapplication.org/showAllEmployees" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndMetaData">
+      <soap:operation soapAction="http://brokerapplication.org/GetEmployeeAndMetaData" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -553,8 +580,17 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SearchEmployee">
-      <soap12:operation soapAction="http://brokerapplication.org/SearchEmployee" style="document" />
+    <wsdl:operation name="showAllEmployees">
+      <soap12:operation soapAction="http://brokerapplication.org/showAllEmployees" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmployeeAndMetaData">
+      <soap12:operation soapAction="http://brokerapplication.org/GetEmployeeAndMetaData" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

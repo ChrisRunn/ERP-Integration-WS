@@ -12,6 +12,7 @@ namespace ERPIntegrationWebService
     public class DAL
     {
         string connectionString = "server=localhost ; Trusted_Connection=yes; database=Demo Database NAV (5-0);";
+
         #region GENERISK METOD
         private void ExecuteUpdate(string sqlStr)
         {
@@ -55,15 +56,15 @@ namespace ERPIntegrationWebService
         }
         #endregion GENERISK METOD
         #region Select, Delete, Update, Insert
-        public void InsertEmployee(string no, string name)
+        public void InsertEmployee(string no, string firstName, string lastName)
         {
-            string sqlStr = "INSERT INTO [CRONUS Sverige AB$Employee Absence] VALUES (DEFAULT, '" + no + "', '" + name + "' , '2004-01-02 00:00:00.000', '1753-01-01 00:00:00.000', '0', '0', '0', '0', '0', '0')";
+            string sqlStr = "INSERT INTO [CRONUS Sverige AB$Employee] VALUES (DEFAULT, '" + no + "', '" + firstName + "' , '0', '" + lastName + "', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '2007-12-13 00:00:00.000', 'NULL', '2007-12-13 00:00:00.000', '0', '0', '0', 1, '0', '0', '0', '0', '2007-12-13 00:00:00.000', 0, '2007-12-13 00:00:00.000', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '2007-12-13 00:00:00.000', '0', '0', '0', '0', '0', '0', '0')";
             ExecuteUpdate(sqlStr);
 
         }
-        public void UpdateEmployee(string no, string name, string lastName)
+        public void UpdateEmployee(string no, string firstName, string lastName)
         {
-            string sqlStr = "UPDATE [CRONUS Sverige AB$Employee] SET [First Name] = '" + name + "', [Last Name] = '" + lastName + "' WHERE No_ = '" + no + "'";
+            string sqlStr = "UPDATE [CRONUS Sverige AB$Employee] SET [First Name] = '" + firstName + "', [Last Name] = '" + lastName + "' WHERE [No_] = '" + no + "'";
             ExecuteUpdate(sqlStr);
 
         }
@@ -73,28 +74,63 @@ namespace ERPIntegrationWebService
             ExecuteUpdate(sqlStr);
 
         }
-        public DataTable SearchEmployee(string searchString)
-        {
 
-            string sqlStr = "SELECT * FROM [CRONUS Sverige AB$Employee] where No_ like '%" + searchString + "%' or [First Name] like '%" + searchString + "%' or [Last Name] like '%" + searchString + "%'";
-            DataTable dt = ExecuteQuery(sqlStr);
-            return dt;
+        public List<Employee> showAllEmployees()
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(
+            "select * from [CRONUS Sverige AB$Employee]", connectionString);
+            DataSet employeeAbsenceDS = new DataSet();
+            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            adapter.Fill(employeeAbsenceDS, "employee");
+
+            DataTable dt = new DataTable();
+            dt = employeeAbsenceDS.Tables["Employee"];
+            List<Employee> employeeAbsenceList = new List<Employee>();
+
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                Employee pb = new Employee();
+                pb.EmployeeNo = dataRow["No_"].ToString();
+                pb.FirstName = dataRow["First Name"].ToString();
+                pb.LastName = dataRow["Last Name"].ToString();
+                employeeAbsenceList.Add(pb);
+            }
+
+
+            return employeeAbsenceList;
+
         }
 
         #endregion Select, Delete, Update, Insert
 
         #region Uppgift A
 
-        //public DataSet GetEmployeeAndMetaData()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "select * from dbo.sysobjects where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
+        public List<SysObject> GetEmployeeAndMetaData()
+        {
 
-        //    return employeeDS;
-        //}
+            SqlDataAdapter adapter = new SqlDataAdapter(
+            "select s.name, s.id, s.xtype from dbo.sysobjects s where name like 'CRONUS Sverige AB$Employee%' and xtype = 'U'", connectionString);
+            DataSet employeeAbsenceDS = new DataSet();
+            adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+            adapter.Fill(employeeAbsenceDS, "empsick");
+
+            DataTable dt = new DataTable();
+            dt = employeeAbsenceDS.Tables["EmpSick"];
+            List<SysObject> employeeAbsenceList = new List<SysObject>();
+
+            foreach (DataRow dataRow in dt.Rows)
+            {
+                SysObject pb = new SysObject();
+                pb.Name = dataRow["name"].ToString();
+                pb.Id = dataRow["id"].ToString();
+                pb.Xtype = dataRow["xtype"].ToString();
+                employeeAbsenceList.Add(pb);
+            }
+
+
+            return employeeAbsenceList;
+
+        }
 
         public List<EmpSick> GetSickEmployee()
         {
@@ -178,38 +214,6 @@ namespace ERPIntegrationWebService
 
         }
 
-
-
-        //public DataSet GetSickEmployee()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "select [First Name], [Last Name] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetMostSickEmployee()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name]", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetEmployeeAndRelatives()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
         #endregion Uppgift A
         
         #region Uppgift B
@@ -393,70 +397,9 @@ namespace ERPIntegrationWebService
             return employeeList;
 
         }
-            
-
+           
         }
     
-        //public DataSet GetAllIndexes()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "SELECT TOP 100 [id], [status] FROM sysindexes", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetAllConstraints()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //   "SELECT TOP 100 [constid], [id] FROM sysconstraints", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetAllTables()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //   "SELECT TOP 100 [name] FROM sysobjects WHERE xtype = 'U'", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetAllTables2()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "SELECT TOP 100 [name] FROM sys.tables", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetColumnsEmployee()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "SELECT [name], [id], [xtype] FROM syscolumns WHERE id = object_id('[CRONUS Sverige AB$Employee]')", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
-        //public DataSet GetColumnsEmployee2()
-        //{
-        //    SqlDataAdapter adapter = new SqlDataAdapter(
-        //    "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = 'CRONUS Sverige AB$Employee'", connectionString);
-        //    DataSet employeeDS = new DataSet();
-        //    adapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-        //    adapter.Fill(employeeDS, "Employees");
-
-        //    return employeeDS;
-        //}
 
         #endregion Uppgift B
 

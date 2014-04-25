@@ -56,10 +56,16 @@
   <ItemGroup>
     <Content Include="ERPIntegrationWS.asmx" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysObject.datasource">
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.Information_Schema_Column.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysConstraint.datasource">
@@ -68,25 +74,19 @@
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysIndex.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysObject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysTable.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.SysColumn.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpRelativeQuery.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWebService.ERPIntegrationWSReference.EmpSick.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <None Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.disco" />
-    <None Include="Service References\ERPIntegrationWSReference\configuration91.svcinfo" />
-    <None Include="Service References\ERPIntegrationWSReference\configuration.svcinfo" />
-    <None Include="Service References\ERPIntegrationWSReference\Reference.svcmap">
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.disco" />
+    <Content Include="Service References\ERPIntegrationWSReference\configuration91.svcinfo" />
+    <Content Include="Service References\ERPIntegrationWSReference\configuration.svcinfo" />
+    <Content Include="Service References\ERPIntegrationWSReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -119,7 +119,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
+    <Content Include="Service References\ERPIntegrationWSReference\ERPIntegrationWS.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
