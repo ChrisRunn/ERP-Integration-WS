@@ -21,15 +21,15 @@ namespace ERPIntegrationWebService
 
         #region Select, Update, Delete, Insert
         [WebMethod(Description = "Inserts new employee", EnableSession = false)]
-        public void InsertEmployee(string no, string name)
+        public void InsertEmployee(string no, string firstName, string lastName)
         {
-            dal.InsertEmployee(no, name);
+            dal.InsertEmployee(no, firstName, lastName);
         }
 
         [WebMethod(Description = "Updates employee", EnableSession = false)]
-        public void UpdateEmployee(string no, string name, string lastName)
+        public void UpdateEmployee(string no, string firstName, string lastName)
         {
-            dal.UpdateEmployee(no, name, lastName);
+            dal.UpdateEmployee(no, firstName, lastName);
         }
 
         [WebMethod(Description = "Deletes employee", EnableSession = false)]
@@ -39,20 +39,20 @@ namespace ERPIntegrationWebService
         }
 
         [WebMethod(Description = "Shows a specific employee", EnableSession = false)]
-        public void SearchEmployee(string searchString)
+        public List<Employee> showAllEmployees()
         {
-            dal.SearchEmployee(searchString);
+            return dal.showAllEmployees();
         }
 
         #endregion Select, Update, Delete, Insert
 
         #region Uppgift A
 
-        //[WebMethod(Description = "Shows all employees and metadata", EnableSession = false)]
-        //public List GetEmployeeAndMetaData()
-        //{
-        //    return dal.GetEmployeeAndMetaData();
-        //}
+        [WebMethod(Description = "Shows all employees and metadata", EnableSession = false)]
+        public List<SysObject> GetEmployeeAndMetaData()
+        {
+            return dal.GetEmployeeAndMetaData();
+        }
 
         [WebMethod(Description = "Shows all employees and relatives", EnableSession = false)]
         public List<EmpRelativeQuery> GetEmployeeAndRelatives()
