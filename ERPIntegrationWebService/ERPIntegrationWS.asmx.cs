@@ -10,7 +10,7 @@ namespace ERPIntegrationWebService
     /// <summary>
     /// Summary description for ERPIntegrationWS
     /// </summary>
-    [WebService(Namespace = "http://brokerapplication.org/")]
+    [WebService(Namespace = "http://brokerapplication.org/", Description ="Handles the connection to CRONUS database")]
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
@@ -117,6 +117,12 @@ namespace ERPIntegrationWebService
             return dal.GetColumnsEmployee2();
         }
         #endregion Uppgift A
+
+         [WebMethod(Description = "Checks if the employee exists", EnableSession = false)]
+        public bool CheckIfEmployeeExists(string no)
+        {
+            return dal.CheckIfEmployeeExists(no);
+        }
 
     }
 }

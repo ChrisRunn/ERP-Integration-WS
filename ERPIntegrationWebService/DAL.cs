@@ -25,7 +25,7 @@ namespace ERPIntegrationWebService
                 con.Open();
                 SqlCommand com = new SqlCommand(sqlStr, con);
                 com.ExecuteNonQuery();
-            } 
+            }
             finally
             {
                 if (con.State == ConnectionState.Open)
@@ -117,9 +117,9 @@ namespace ERPIntegrationWebService
         public List<EmpSick> GetSickEmployee()
         {
 
-           string sqlStr = "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
-           DataTable dt = ExecuteQuery(sqlStr);
-           List<EmpSick> employeeAbsenceList = new List<EmpSick>();
+            string sqlStr = "select [First Name], [Last Name], [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
+            DataTable dt = ExecuteQuery(sqlStr);
+            List<EmpSick> employeeAbsenceList = new List<EmpSick>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -135,7 +135,7 @@ namespace ERPIntegrationWebService
         public List<EmpSick> GetMostSickEmployee()
         {
 
-            string sqlStr= "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
+            string sqlStr = "select max(e.[First Name]) as [First Name] , (e.[Last Name])as [Last Name], (a.[Quantity])as [Quantity] from [CRONUS Sverige AB$Employee] e, [CRONUS Sverige AB$Employee Absence] a where a.[Employee No_] = e.[No_] and Description = 'Sjuk' group by [First Name], [Last Name], [Quantity]";
             DataTable dt = ExecuteQuery(sqlStr);
             List<EmpSick> employeeAbsenceList = new List<EmpSick>();
 
@@ -153,9 +153,9 @@ namespace ERPIntegrationWebService
         public List<EmpRelativeQuery> GetEmployeeAndRelatives()
         {
 
-         string sqlStr = "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]";
-         DataTable dt = ExecuteQuery(sqlStr);
-         List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
+            string sqlStr = "select e.[First Name], e.[Last Name], l.[Relative Code], l.[First Name] from [CRONUS Sverige AB$Employee Relative] l, [CRONUS Sverige AB$Employee] e where l.[Employee No_] = e.[No_]";
+            DataTable dt = ExecuteQuery(sqlStr);
+            List<EmpRelativeQuery> employeeRelativeList = new List<EmpRelativeQuery>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -170,11 +170,11 @@ namespace ERPIntegrationWebService
         }
 
         #endregion Uppgift A
-        
+
         #region Uppgift B
         public List<SysObject> GetAllKeys()
         {
-            string sqlStr ="select top 100 [id], [xtype], [name] from sysobjects where xtype = 'F' or xtype = 'PK'";
+            string sqlStr = "select top 100 [id], [xtype], [name] from sysobjects where xtype = 'F' or xtype = 'PK'";
             DataTable dt = ExecuteQuery(sqlStr);
             List<SysObject> sysObjectList = new List<SysObject>();
 
@@ -191,8 +191,8 @@ namespace ERPIntegrationWebService
 
         public List<SysIndex> GetAllIndexes()
         {
-            string sqlStr ="select top 100 [id], [status] from sysindexes";
-            DataTable dt = ExecuteQuery(sqlStr); 
+            string sqlStr = "select top 100 [id], [status] from sysindexes";
+            DataTable dt = ExecuteQuery(sqlStr);
             List<SysIndex> sysIndexList = new List<SysIndex>();
 
             foreach (DataRow dataRow in dt.Rows)
@@ -207,9 +207,9 @@ namespace ERPIntegrationWebService
 
         public List<SysObject> GetAllTables()
         {
-           string sqlStr ="select top 100 [name] from sysobjects where xtype = 'U'";
-           DataTable dt = ExecuteQuery(sqlStr);
-           List<SysObject> sysTableList = new List<SysObject>();
+            string sqlStr = "select top 100 [name] from sysobjects where xtype = 'U'";
+            DataTable dt = ExecuteQuery(sqlStr);
+            List<SysObject> sysTableList = new List<SysObject>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -223,7 +223,7 @@ namespace ERPIntegrationWebService
         public List<SysTable> GetAllTables2()
         {
 
-            string sqlStr ="select top 100 [name] from sys.tables";
+            string sqlStr = "select top 100 [name] from sys.tables";
             DataTable dt = ExecuteQuery(sqlStr);
             List<SysTable> sysTableList = new List<SysTable>();
 
@@ -241,7 +241,7 @@ namespace ERPIntegrationWebService
         public List<SysConstraint> GetAllConstraints()
         {
 
-            string sqlStr ="select top 100 [constid], [id] from sysconstraints";
+            string sqlStr = "select top 100 [constid], [id] from sysconstraints";
             DataTable dt = ExecuteQuery(sqlStr);
             List<SysConstraint> sysConstraintList = new List<SysConstraint>();
             foreach (DataRow dataRow in dt.Rows)
@@ -274,10 +274,10 @@ namespace ERPIntegrationWebService
         public List<Information_Schema_Column> GetColumnsEmployee2()
         {
 
-           string sqlStr = "select COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'CRONUS Sverige AB$Employee'";
+            string sqlStr = "select COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS where TABLE_NAME = 'CRONUS Sverige AB$Employee'";
 
-           DataTable dt = ExecuteQuery(sqlStr);
-           List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
+            DataTable dt = ExecuteQuery(sqlStr);
+            List<Information_Schema_Column> employeeList = new List<Information_Schema_Column>();
 
             foreach (DataRow dataRow in dt.Rows)
             {
@@ -288,11 +288,22 @@ namespace ERPIntegrationWebService
             return employeeList;
 
         }
-           
-        }
-    
 
         #endregion Uppgift B
 
-       
+        public bool CheckIfEmployeeExists(string no)
+        {
+            bool exists = false;
+            string sqlStr = "select * from [CRONUS Sverige AB$Employee] where No_ = '" + no + "'";
+            DataTable dt = ExecuteQuery(sqlStr);
+
+            if (dt.Rows.Count > 0)
+            {
+                exists = true;
+            }
+
+            return exists;
+        }
+
     }
+}
